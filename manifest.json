@@ -10,6 +10,11 @@
         "access": {
           "requireUser": true
         }
+      }, {
+        "id": "WheresMyCommit",
+        "function": {
+          "js": "WheresMyCommit.js"
+        }
       }],
       "javascriptAPIVersion": "3",
       "source": "src"
