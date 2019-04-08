@@ -1,6 +1,10 @@
 {
   "v2": {
     "transposit": {
+      "dependencies": [{
+        "name": "transposit/aws_basic:latest",
+        "alias": "aws_basic"
+      }],
       "operations": [{
         "id": "webhook",
         "function": {
