@@ -1,5 +1,5 @@
 (params) => {
-    var shaArray = params.body.split("&");
+  var shaArray = params.body.split("&");
   api.log(shaArray);
   shaArray.forEach((entry) => {
     if (entry.startsWith("text=")) {
