@@ -1,5 +1,7 @@
 ({ http_event }) => {
   console.log(http_event);
+  var sha = JSON.parse(http_event.body).text;
+  api.log(sha);
   return {
     status_code: 200,
     headers: { "Content-Type": "application/json" },
