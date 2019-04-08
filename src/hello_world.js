@@ -1,4 +1,12 @@
 (params) => {
+    var shaArray = params.body.split("&");
+  api.log(shaArray);
+  shaArray.forEach((entry) => {
+    if (entry.startsWith("text=")) {
+      sha = entry.substring(5);
+    }
+  }
+  
   return [
     {
       language: "english",

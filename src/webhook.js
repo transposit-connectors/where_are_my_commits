@@ -1,7 +1,15 @@
 ({ http_event }) => {
   console.log(http_event);
-  var sha = JSON.parse(http_event.body).text;
+  var sha;
+  var shaArray = http_event.body;
+   shaArray.forEach((entry) => {
+    if (entry.startsWith("text=")) {
+      sha = entry.substring(5);
+    }
+  });
   api.log(sha);
+                    
+                
   return {
     status_code: 200,
     headers: { "Content-Type": "application/json" },
