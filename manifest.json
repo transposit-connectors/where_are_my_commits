@@ -13,11 +13,6 @@
       }, {
         "id": "WheresMyCommit",
         "function": {
-          "parameters": [{
-            "name": "sha",
-            "type": "STRING",
-            "required": true
-          }],
           "js": "WheresMyCommit.js"
         }
       }],
