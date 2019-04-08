@@ -38,6 +38,20 @@
           "requireUser": true
         }
       }],
+      "dataConnections": [{
+        "ref": "aws_basic",
+        "overrides": {
+          "swagger": {
+            "awsConfig": {
+              "region": "us-west-2",
+              "service": "events"
+            },
+            "baseUrl": "https://events.us-west-2.amazonaws.com/",
+            "executionLimits": {
+            }
+          }
+        }
+      }],
       "javascriptAPIVersion": "3",
       "source": "src"
     }
