@@ -7,6 +7,9 @@
       }, {
         "name": "transposit/github:v2.*.*",
         "alias": "github"
+      }, {
+        "name": "transposit/raw_github:latest",
+        "alias": "raw_github"
       }],
       "operations": [{
         "id": "webhook",
