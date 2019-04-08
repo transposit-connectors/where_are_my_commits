@@ -26,12 +26,6 @@
               "text": "{\"http_method\": \"GET\", \"query_parameters\": {}, \"headers\": {}, \"body\": \"\"}"
             },
             "type": "OBJECT"
-          }, {
-            "name": "body",
-            "default": {
-              "text": "token=OdkBOkvmFxG0sUV4nfo3XFm4&team_id=T2615V5UK&team_domain=transposit&channel_id=D9YF5V50V&channel_name=directmessage&user_id=U9Z6H71U6&user_name=nina&command=%2Fwheresmycommit&text=foo&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2FT2615V5UK%2F601691400544%2F9WLau46oydYcoA5XpmWsWX7h&trigger_id=590178665875.74039991971.a8c58f6dc14a24d64bcd78421856272a"
-            },
-            "type": "STRING"
           }],
           "js": "webhook.js"
         },
