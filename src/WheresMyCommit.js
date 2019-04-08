@@ -1,4 +1,5 @@
 (params) => {
+  console.log(params);
   return {
     mission: "complete"
   };
