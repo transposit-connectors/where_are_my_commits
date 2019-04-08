@@ -4,6 +4,9 @@
       "dependencies": [{
         "name": "transposit/aws_basic:latest",
         "alias": "aws_basic"
+      }, {
+        "name": "transposit/github:v2.*.*",
+        "alias": "github"
       }],
       "operations": [{
         "id": "webhook",
