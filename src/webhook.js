@@ -9,8 +9,8 @@
   });
   api.log(sha);
   
-  var deployedCommits = api.run("this.getDeployedCommits");
-  var foundCommit = api.run("this.findCommit", {demoCommit: deployedCommits[0], 
+  var deployedCommits = api.run("this.GetDeployedCommits");
+  var foundCommit = api.run("this.FindCommit", {demoCommit: deployedCommits[0], 
                                                 stagingCommit: deployedCommits[1], 
                                                 prodCommit: deployedCommits[2], 
                                                 sha: sha});
