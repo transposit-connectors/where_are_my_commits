@@ -57,7 +57,8 @@
     $("#loading").hide();
     
     $("#runOperationBtn").click(function() {
-
+      
+	  $("#loading").show();
       var sha = $("#sha").val();
     transposit.runOperation("MakeSlackMessage", {sha: sha})
       .then((response) => {
