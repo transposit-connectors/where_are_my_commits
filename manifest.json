@@ -107,7 +107,7 @@
       }, {
         "id": "ListGitCommits",
         "tql": {
-          "tql": "select * from raw_github.repos_owner_repo_commits_get \n  WHERE owner='transposit'\n  AND repo='transposit'\n  and per_page = 100\n"
+          "tql": "select * from raw_github.repos_owner_repo_commits_get \n  WHERE owner='transposit'\n  AND repo='transposit'\n  and per_page = 100\n  -- default sha will be master\n"
         }
       }, {
         "id": "GetCommitMap",
