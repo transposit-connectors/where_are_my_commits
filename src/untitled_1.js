@@ -17,8 +17,6 @@
       commitEnv = "NONE";
     }
   } else {
-    commit = thisCommit;
-    api.log(commit.commit.message);
     var thisCommitIndex = thisCommit.transposit_index;
 
     if (thisCommitIndex < demoIndex) {
@@ -34,7 +32,7 @@
   
   return {
     env: commitEnv,
-    commit: commit
+    message: thisCommit.commit.message;
   };
 }
 
