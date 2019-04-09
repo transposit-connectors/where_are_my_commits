@@ -131,11 +131,6 @@
       }, {
         "id": "MakeSlackMessage",
         "function": {
-          "js": "MakeSlackMessage.js"
-        }
-      }, {
-        "id": "webhook_1",
-        "function": {
           "parameters": [{
             "name": "http_event",
             "default": {
