@@ -21,6 +21,8 @@
                                                 prodCommit: deployedCommits[2], 
                                                 sha: sha});
   
+  api.log(commit);
+  
   var message = "";
   if (commit.env === "NONE") {
     message = "This is not a commit.";
@@ -38,13 +40,14 @@
     if (!prodDeployEnabled) {
       message += `Prod deploy is *disabled*, so it's unclear when it will make it to prod.`;  
     } else {
+      message += "It will be on *Prod* ";
       if (["Friday", "Saturday", "Sunday"].includes(moment.dddd)) {
         var tuesday = moment().startOf('day').add(deployHour, 'hours').day(2).calendar();
-        message += `It will be on *Prod* ${tuesday}`
+        message += tuesday;
       } else {
       	var daysToAdd = commit.env === "DEMO" ? 2 : 1;
         var toProd = moment().startOf('day').add(deployHour, 'hours').add(daysToAdd, 'days').calendar();
-        message += `It will be on Prod ${toProd}`;
+        message += toProd;
       }
       
     }
