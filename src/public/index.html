@@ -31,10 +31,11 @@
         <circle fill="#1D8A48" cx="42" cy="36" r="6"/>
       </g>
     </svg>
-    <h1>Hello, world!</h1>
-    <p class="text-secondary">
-      There's lots of ways to say "Hello, world"!
-    </p>
+    <h1>
+      <input style="width: 40px; text-align: center" id="sha" label="SHA:"/>
+  <button style="text-align:center" id="runOperationBtn">Click</button>
+    </h1>
+  
   </div>
   <div class="container mt-3 mt-md-5">
     <div id="loading" class="alert alert-warning" role="alert">
@@ -53,8 +54,11 @@
   <script>
     $("#failure").hide();
     $("#success").hide();
+    
+    $("#runOperationBtn").click(function() {
 
-    transposit.runOperation("hello_world")
+      var sha = $("#sha").val();
+    transposit.runOperation("MakeSlackMessage", {sha: sha})
       .then((response) => {
         if (response.status !== "SUCCESS") {
           throw response;
@@ -86,6 +90,7 @@
 
         $("#loading").hide();
         $("#failure").show();
+      });
       });
   </script>
 </body>

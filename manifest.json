@@ -128,7 +128,7 @@
         "function": {
           "parameters": [{
             "name": "sha",
-            "type": "OBJECT"
+            "type": "STRING"
           }],
           "js": "webhook_1.js"
         },
