@@ -23,6 +23,7 @@
   
   api.log("RESULTS");
   api.log(commit);
+  api.log(commit.commit);
   
   var message = "";
   if (commit.env === "NONE") {
