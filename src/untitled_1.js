@@ -1,5 +1,6 @@
 (params) => {
-  var commits = api.run("this.ListGitCommits");
+  var commits = api.run("this.GetCommitMap")[0];
+  var demo 
   
   
   

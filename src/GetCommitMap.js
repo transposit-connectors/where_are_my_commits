@@ -2,7 +2,8 @@
   var commits = api.run("raw_github.repos_owner_repo_commits_get", {repo: "transposit", owner: "transposit", "per_page": 100});
   
   var results = {};
-  commits.forEach(commit => {
+  commits.forEach((commit, index) => {
+    commit.transposit_index = index;
     results[commit.sha] = commit;
   });
   
