@@ -32,14 +32,14 @@
 
     var containsDynamicConfig = false;
     commit.commit.files.forEach((file) => {
-      if (file.fileName.includes("dynamic_configuration.yml")) {
+      if (file.filename.includes("dynamic_configuration.yml")) {
         containsDynamicConfig = true;
       }
     });
 
-    if (containsDynamicConfig && commit.files.length == 1) {
+    if (containsDynamicConfig && commit.commit.files.length == 1) {
       var ending1 = stageNumber < 1 ? "and it will be in prod shortly." :  "and that already been deployed.";
-      return `This commit only contained a dynamic configuration change ${ending}`;
+      return `This commit (${commit.message}) only contained a dynamic configuration change ${ending1}`;
     }
 
     if (stageNumber < 1) { // master
@@ -71,7 +71,7 @@
 
     if (containsDynamicConfig) {
       var ending2 = stageNumber < 1 ? "will be deployed shortly" : "have already been deployed";
-      message += `The dynamic configuration changes in this commit ${ending}`
+      message += `The dynamic configuration changes in this commit ${ending2}`
     }
 
     api.log(message);

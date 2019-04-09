@@ -32,7 +32,7 @@
   
   if (thisCommit) {
     // Replace the commit with all the details so we can get its files
-    thisCommit = api.run("this.get_commit", {sha: params.sha});
+    thisCommit = api.run("this.get_commit", {sha: params.sha})[0];
   }
   
   return {
