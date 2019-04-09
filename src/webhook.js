@@ -27,7 +27,7 @@
   api.log(commit.message);
 
   var message = "";
-  if (commit.env === "NONE") {
+  if (commit.env == "NONE") {
     message = "This is not a commit.";
   } else if (commit.env === "PROD") {
     message = `This commit (${commit.message}) is on prod!`;
