@@ -18,15 +18,15 @@
   
   var message = "";
   if (commitAndEnv.env === "NONE") {
-    message = "This is not a commit."
-    return {
-      status_code: 200,
-      headers: { "Content-Type": "application/json" },
-      body: {text: message}
-  	};
+    message = "This is not a commit.";
+  } else if (commitAndEnv.env === "PROD") {
+    message = "This commit is on prod!";
+  } else {
+    message += `This commit is on ${commitAndEnv.env}.\n"`;
+    
   }
 
-  message += `This commit is on ${commitAndEnv.env}.\n"`;
+  
   message += `It is expected to make it onto `
   message += `Prod deploy is *${prodDeployEnabled}*`;
   
