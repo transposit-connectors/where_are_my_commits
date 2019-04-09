@@ -1,5 +1,5 @@
 ({http_event}) => {
-  api.runForAllUsers("this.MakeSlackMessage", {http_event: httpEvent});
+  api.runForAllUsers("this.MakeSlackMessage", {http_event: http_event});
   return {
     status_code: 200,
     headers: {"Content-Type": "application/json"},
