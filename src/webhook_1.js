@@ -25,12 +25,12 @@
   }
   else {
     if (commit.env === "NOT_YET") {
-      message += "This commit just got merged into master. It will be on Demo soon.";
+      message += "This commit just got merged into master.\nIt will be on Demo soon.\n";
     } else {
       message += `This commit (${commit.message}) is on ${commit.env}.\n`;  
     }
     
-    if (commit.env === "DEMO" || commit.env === "NOT_YET") {
+    if (commit.env !== "STAGING") {
       var toStaging = now.clone().startOf('day').add(deployHour, 'hours').add(1, 'days').calendar();
       message += `It will be on *Staging* ${toStaging}\n`;
     }
@@ -45,7 +45,7 @@
         message += tuesday;
         
       } else {
-        var daysToAdd = commit.env === "DEMO" ? 2 : 1;
+        var daysToAdd = commit.env !== "STAGING" ? 2 : 1;
         var toProd = now.clone().startOf('day').add(deployHour, 'hours').add(daysToAdd, 'days').calendar();
         message += toProd;
       }
