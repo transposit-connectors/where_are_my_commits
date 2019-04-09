@@ -102,6 +102,11 @@
         "function": {
           "js": "GetCommitMap.js"
         }
+      }, {
+        "id": "untitled_2",
+        "function": {
+          "js": "untitled_2.js"
+        }
       }],
       "dataConnections": [{
         "ref": "aws_basic",
