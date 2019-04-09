@@ -26,7 +26,7 @@
 
     message += `This commit (${commit.message}) is on ${commit.env}.\n`;
     if (commit.env === "DEMO") {
-      var toStaging = moment().startOf('day').add(deployHour, 'hours').add(1, 'days').calendar();
+      var toStaging = now.clone().startOf('day').add(deployHour, 'hours').add(1, 'days').calendar();
       message += `It will be on *Staging* ${toStaging}\n`;
     }
 
@@ -36,13 +36,13 @@
     } else {
       message += "It will be on *Prod* ";
       if (["Friday", "Saturday", "Sunday"].includes("Friday")) {
-        api.log(moment());
-        var tuesday = moment().startOf('day').add(deployHour, 'hours').day(2).calendar();
+      
+        var tuesday = now.clone().startOf('day').add(deployHour, 'hours').day(2).calendar();
         
         message += tuesday;
       } else {
         var daysToAdd = commit.env === "DEMO" ? 2 : 1;
-        var toProd = moment().startOf('day').add(deployHour, 'hours').add(daysToAdd, 'days').calendar();
+        var toProd = now.clone().startOf('day').add(deployHour, 'hours').add(daysToAdd, 'days').calendar();
         message += toProd;
       }
       message += " (prod deployment is enabled)";
