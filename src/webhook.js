@@ -31,20 +31,19 @@
     message = `This commit (${commit.message}) is on prod!`;
   } else {
     
-    api.log("here");
     message += `This commit (${commit.message}) is on ${commit.env}.\n"`;
     if (commit.env === "DEMO") {
       var toStaging = moment().startOf('day').add(deployHour, 'hours').add(1, 'days').calendar();
-      message += `It is expected to make it onto *Staging* ${toStaging}\n`;      
+      message += `It will be on *Staging* ${toStaging}\n`;      
     }
     
     // Prod regardless
     if (!prodDeployEnabled) {
       message += `Prod deploy is *disabled*, so it's unclear when it will make it to prod.`;  
     } else {
-      api.log("here2");
       if (["Friday", "Saturday", "Sunday"].includes(moment.dddd)) {
-        message += `It will be on Prod on Tuesday`
+        var tuesday = moment().startOf('day').add(deployHour, 'hours').day(2).calendar();
+        message += `It will be on *Prod* ${tuesday}`
       } else {
       	var daysToAdd = commit.env === "DEMO" ? 2 : 1;
         var toProd = moment().startOf('day').add(deployHour, 'hours').add(daysToAdd, 'days').calendar();
@@ -54,12 +53,6 @@
     }
     
   }
-  api.log("what");
-  
-  // get the head of prod
-  // get the head of staging -> see if the commit is in between those and if it is then it's on prod
-  // get the head of demo
-  // if not 
                     
                 
   return {
