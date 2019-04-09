@@ -28,10 +28,10 @@
   if (commit.env === "NONE") {
     message = "This is not a commit.";
   } else if (commit.env === "PROD") {
-    message = `This commit (${commit.commit.message}) is on prod!`;
+    message = `This commit (${commit.commit.commit.message}) is on prod!`;
   } else {
     api.log(commit.commit);
-    message += `This commit (${commit.commit.message}) is on ${commit.env}.\n"`;
+    message += `This commit (${commit.commit.commit.message}) is on ${commit.env}.\n"`;
     if (commit.env === "DEMO") {
       var toStaging = moment().startOf('day').add(deployHour, 'hours').add(1, 'days').calendar();
       message += `It is expected to make it onto *Staging* ${toStaging}\n`;      
