@@ -124,18 +124,10 @@
           "js": "untitled_2.js"
         }
       }, {
-        "id": "untitled_3",
-        "function": {
-          "js": "untitled_3.js"
-        }
-      }, {
         "id": "MakeSlackMessage",
         "function": {
           "parameters": [{
-            "name": "http_event",
-            "default": {
-              "text": "{\"http_method\": \"GET\", \"query_parameters\": {}, \"headers\": {}, \"body\": \"\"}"
-            },
+            "name": "sha",
             "type": "OBJECT"
           }],
           "js": "webhook_1.js"

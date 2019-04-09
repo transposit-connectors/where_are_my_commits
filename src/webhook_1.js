@@ -1,18 +1,10 @@
-({ http_event }) => {
-    var moment = require('moment-timezone-with-data.js');
+(params) => {
+  var moment = require('moment-timezone-with-data.js');
   var now = moment().tz("America/Los_Angeles");
   var deployHour = now.toString().indexOf("-0700") > -1 ? 5 : 4;
   var dayOfWeek = now.format("dddd");
 
-  console.log(http_event);
-  var sha;
-  var shaArray = http_event.body.split("&");
-  shaArray.forEach((entry) => {
-    if (entry.startsWith("text=")) {
-      sha = entry.substring(5);
-    }
-  });
-  api.log(sha);
+  var sha = params.sha;
 
   var prodDeployEnabled = api.run("this.prodDeployEnabled")[0];
   var deployedCommits = api.run("this.GetDeployedCommits");
