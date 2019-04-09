@@ -22,10 +22,15 @@
     message = "This is not a commit.";
   } else if (commit.env === "PROD") {
     message = `This commit (${commit.message}) is on prod!`;
-  } else {
-
-    message += `This commit (${commit.message}) is on ${commit.env}.\n`;
-    if (commit.env === "DEMO") {
+  }
+  else {
+    if (commit.env === "NOT_YET") {
+      message += "This commit just got merged into master. It will be on Demo soon.";
+    } else {
+      message += `This commit (${commit.message}) is on ${commit.env}.\n`;  
+    }
+    
+    if (commit.env === "DEMO" || commit.env === "NOT_YET") {
       var toStaging = now.clone().startOf('day').add(deployHour, 'hours').add(1, 'days').calendar();
       message += `It will be on *Staging* ${toStaging}\n`;
     }
