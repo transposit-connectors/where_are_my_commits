@@ -133,6 +133,7 @@
           "js": "webhook_1.js"
         },
         "access": {
+          "requireUser": true
         }
       }],
       "dataConnections": [{
