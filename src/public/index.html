@@ -68,7 +68,11 @@
         }
 
         const results = response.result.results;
-        $("#results").html(results[0]);
+        // $("#results").html(results[0]);
+        var lines = results[0].split("\n");
+        lines.forEach((line) => {
+          $("#results").append(line);
+        })
 
         // if (results.length === 0) {
         //   $("#results").text("None");
