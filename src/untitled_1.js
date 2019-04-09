@@ -33,7 +33,7 @@
   
   return {
     env: commitEnv,
-    commit: commit;
+    commit: commit
   };
 }
 
