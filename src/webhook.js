@@ -27,7 +27,7 @@
   return {
     status_code: 200,
     headers: { "Content-Type": "application/json" },
-    body: {text: "*hello*"}
+    body: {text: "*hello* \n multi \n lines"}
   };
 }
 
