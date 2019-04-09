@@ -21,6 +21,9 @@
                                                 prodCommit: deployedCommits[2], 
                                                 sha: sha});
   
+  api.log("RESULTS");
+  api.log(commit);
+  
   var message = "";
   if (commit.env === "NONE") {
     message = "This is not a commit.";
