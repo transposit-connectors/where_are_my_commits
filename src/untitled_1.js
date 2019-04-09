@@ -10,7 +10,7 @@
     api.log("not on. demo yet");
   } else if (thisCommitIndex < stagingIndex) {
     api.log("demo");
-  } else if (thisCommitIndex < prod) {
+  } else if (thisCommitIndex < prodIndex) {
     api.log("staging");
   }
   
