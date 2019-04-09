@@ -25,7 +25,7 @@
   }
   else {
     if (commit.env === "NOT_YET") {
-      message += "This commit just got merged into master.\nIt will be on Demo soon.\n";
+      message += "This commit just got merged into master.\nIt will be on Demo soon\n";
     } else {
       message += `This commit (${commit.message}) is on ${commit.env}.\n`;  
     }
