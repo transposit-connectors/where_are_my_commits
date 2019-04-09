@@ -105,6 +105,10 @@
       }, {
         "id": "untitled_2",
         "function": {
+          "parameters": [{
+            "name": "sha",
+            "type": "STRING"
+          }],
           "js": "untitled_2.js"
         }
       }],

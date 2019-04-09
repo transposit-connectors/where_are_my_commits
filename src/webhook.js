@@ -22,6 +22,7 @@
                                                 sha: sha});
   
   api.log(commit);
+  api.log(commit.message);
   
   var message = "";
   if (commit.env === "NONE") {

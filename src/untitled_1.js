@@ -10,7 +10,7 @@
   var thisCommit= commits[params.sha];
   if (!thisCommit) {
     try {
-      api.run("this.get_commit");
+      api.run("this.get_commit", {sha: params.sha});
       commitEnv = "PROD";
     
     } catch (err) {
