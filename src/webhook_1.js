@@ -35,7 +35,7 @@
       message += `Prod deploy is *disabled*, so it's unclear when it will make it to prod.`;
     } else {
       message += "It will be on *Prod* ";
-      if (["Friday", "Saturday", "Sunday"].includes(moment.dddd)) {
+      if (["Friday", "Saturday", "Sunday"].includes("Friday")) {
         var tuesday = moment().startOf('day').add(deployHour, 'hours').day(2).calendar();
         message += tuesday;
       } else {
