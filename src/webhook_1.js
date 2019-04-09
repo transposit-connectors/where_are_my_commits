@@ -36,7 +36,9 @@
     } else {
       message += "It will be on *Prod* ";
       if (["Friday", "Saturday", "Sunday"].includes("Friday")) {
+        api.log(moment());
         var tuesday = moment().startOf('day').add(deployHour, 'hours').day(2).calendar();
+        
         message += tuesday;
       } else {
         var daysToAdd = commit.env === "DEMO" ? 2 : 1;
