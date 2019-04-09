@@ -32,7 +32,7 @@
   
   return {
     env: commitEnv,
-    message: thisCommit.commit.message;
+    message: thisCommit.commit.message
   };
 }
 
