@@ -9,11 +9,14 @@
   });
   api.log(sha);
   
+  var prodDeployEnabled = api.run("this.prodDeployEnabled")[0];
   var deployedCommits = api.run("this.GetDeployedCommits");
-  var foundCommit = api.run("this.FindCommit", {demoCommit: deployedCommits[0], 
+  var commitAndEnv = api.run("this.FindCommit", {demoCommit: deployedCommits[0], 
                                                 stagingCommit: deployedCommits[1], 
                                                 prodCommit: deployedCommits[2], 
                                                 sha: sha});
+  
+  var message = `This commit is on ${commitAndEnv.env}. Prod deploy is ${prodDeployEnabled}`;
   
   // get the head of prod
   // get the head of staging -> see if the commit is in between those and if it is then it's on prod
@@ -24,7 +27,7 @@
   return {
     status_code: 200,
     headers: { "Content-Type": "application/json" },
-    body: {"message": "foobarbaz"}
+    body: {"message": message}
   };
 }
 
