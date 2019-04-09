@@ -72,8 +72,7 @@
         var lines = results[0].split("\n");
       console.log(lines);
         lines.forEach((line) => {
-          $("#results").append(line);
-          $("#results").append("$(<br/>)")
+          $("#results").append("<div>" + line + "</div>");
         })
 
         // if (results.length === 0) {
