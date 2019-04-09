@@ -27,6 +27,7 @@
   } else if (commit.env === "PROD") {
     message = `This commit (${commit.commit.message}) is on prod!`;
   } else {
+    api.log(commit.commit);
     message += `This commit (${commit.commit.message}) is on ${commit.env}.\n"`;
     if (commit.env === "DEMO") {
       var toStaging = moment().startOf('day').add(deployHour, 'hours').add(1, 'days').calendar();
