@@ -13,8 +13,7 @@
     try {
       thisCommit = api.run("this.get_commit", {sha: params.sha})[0];
       var commitDate = moment(thisCommit.commit.committer.date).tz("America/Los_Angeles");
-      api.log(thisCommit.commit.committer.date);
-      api.log(commitDate);
+      // If we couldn't find the commit and its fairly new, guess that it's still in dev
       if (commitDate.isAfter(moment().subtract(5, 'days'))) {
       	commitEnv = "DEV";    
       } else {
