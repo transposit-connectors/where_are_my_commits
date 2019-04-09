@@ -70,23 +70,6 @@
           "tql": "SELECT * FROM github.get_commit\n  WHERE owner='transposit'\n  AND shaCode=@sha\n  AND repo='transposit'\n\n/*\n * For sample code and reference material, visit\n * https://api-composition.transposit.com/get-started/sql-quickstart\n */"
         }
       }, {
-        "id": "describe_services",
-        "tql": {
-          "parameters": [{
-            "name": "cluster",
-            "default": {
-              "text": "stage-cluster"
-            },
-            "type": "STRING"
-          }],
-          "tql": "SELECT * FROM aws_ecs_demo.describe_services\n  WHERE services=(SELECT ['web'])\n  AND cluster=@cluster\n  \n   -- function run(params) {\n   -- var body = {\"cluster\": params.cluster, \"services\": ['code', 'task', 'schedule', 'execution', 'auth', 'web']};\n   -- return api.run(\"aws_ecs.describe_services\", {body: body})[0].services\n \n\n/*\n * For sample code and reference material, visit\n * https://api-composition.transposit.com/get-started/sql-quickstart\n */"
-        }
-      }, {
-        "id": "create_cluster",
-        "tql": {
-          "tql": "SELECT * FROM aws_ecs_stage.create_cluster\n  WHERE clusterName='<string>'\n  AND tags=(SELECT [])\n\n/*\n * For sample code and reference material, visit\n * https://api-composition.transposit.com/get-started/sql-quickstart\n */"
-        }
-      }, {
         "id": "GetDeployedCommits",
         "function": {
           "js": "untitled.js"
