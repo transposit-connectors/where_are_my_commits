@@ -70,6 +70,7 @@
         const results = response.result.results;
         // $("#results").html(results[0]);
         var lines = results[0].split("\n");
+      console.log(lines);
         lines.forEach((line) => {
           $("#results").append(line);
         })
