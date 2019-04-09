@@ -16,7 +16,7 @@
                                                 prodCommit: deployedCommits[2], 
                                                 sha: sha});
   
-  var message = `This commit is on ${commitAndEnv.env}. Prod deploy is ${prodDeployEnabled}`;
+  var message = `This commit is on ${commitAndEnv.commitEnv}. Prod deploy is ${prodDeployEnabled}`;
   
   // get the head of prod
   // get the head of staging -> see if the commit is in between those and if it is then it's on prod
