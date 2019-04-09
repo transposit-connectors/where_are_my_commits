@@ -1,5 +1,7 @@
 (params) => {
-  api.run("github.")
+  var commits = api.run("this.ListGitCommits");
+  
+  
   
   return {
     mission: "complete"

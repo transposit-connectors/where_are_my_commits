@@ -61,11 +61,6 @@
           "js": "prodDeployEnabled.js"
         }
       }, {
-        "id": "untitled_2",
-        "tql": {
-          "tql": "select * from raw_github.repos_owner_repo_commits_get \n  WHERE owner='transposit'\n  AND repo='transposit'\n  and per_page = 100\n"
-        }
-      }, {
         "id": "get_commit",
         "tql": {
           "parameters": [{
@@ -113,6 +108,16 @@
             "type": "STRING"
           }],
           "js": "untitled_1.js"
+        }
+      }, {
+        "id": "ListGitCommits",
+        "tql": {
+          "tql": "select * from raw_github.repos_owner_repo_commits_get \n  WHERE owner='transposit'\n  AND repo='transposit'\n  and per_page = 100\n"
+        }
+      }, {
+        "id": "GetCommitMap",
+        "function": {
+          "js": "GetCommitMap.js"
         }
       }],
       "dataConnections": [{
