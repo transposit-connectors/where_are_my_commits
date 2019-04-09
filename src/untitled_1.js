@@ -4,20 +4,36 @@
   var stagingIndex = commits[params.stagingCommit].transposit_index;
   var prodIndex = commits[params.prodCommit].transposit_index;
   
-  var thisCommitIndex = commits[params.sha].transposit_index;
+  var commitEnv = "";
+  var commit;
   
-  if (thisCommitIndex < demoIndex) {
-    api.log("not on. demo yet");
-  } else if (thisCommitIndex < stagingIndex) {
-    api.log("demo");
-  } else if (thisCommitIndex < prodIndex) {
-    api.log("staging");
+  var thisCommit= commits[params.sha];
+  if (!thisCommit) {
+    try {
+      api.run("this.get_commit");
+      commitEnv = "PROD";
+    
+    } catch (err) {
+      commitEnv = "NONE";
+    }
+  } else {
+    commit = thisCommit;
+    var thisCommitIndex = thisCommit.transposit_index;
+
+    if (thisCommitIndex < demoIndex) {
+      commitEnv = "NOT_YET";
+    } else if (thisCommitIndex < stagingIndex) {
+      commitEnv = "DEMO";
+    } else if (thisCommitIndex < prodIndex) {
+      commitEnv = "STAGING";
+    } else {
+      commitEnv = "PROD";
+    }
   }
   
-  
-  
   return {
-    mission: "complete"
+    env: commitEnv,
+    commit: commit;
   };
 }
 
