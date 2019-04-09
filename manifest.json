@@ -55,6 +55,52 @@
         "access": {
           "requireUser": true
         }
+      }, {
+        "id": "prodDeployEnabled",
+        "function": {
+          "js": "prodDeployEnabled.js"
+        }
+      }, {
+        "id": "untitled",
+        "function": {
+          "js": "untitled.js"
+        }
+      }, {
+        "id": "untitled_1",
+        "function": {
+          "js": "untitled_1.js"
+        }
+      }, {
+        "id": "untitled_2",
+        "tql": {
+          "tql": "select * from raw_github.repos_owner_repo_commits_get \n  WHERE owner='transposit'\n  AND repo='transposit'\n  and per_page = 100\n"
+        }
+      }, {
+        "id": "get_commit",
+        "tql": {
+          "parameters": [{
+            "name": "sha",
+            "type": "STRING"
+          }],
+          "tql": "SELECT * FROM github.get_commit\n  WHERE owner='transposit'\n  AND shaCode=@sha\n  AND repo='transposit'\n\n/*\n * For sample code and reference material, visit\n * https://api-composition.transposit.com/get-started/sql-quickstart\n */"
+        }
+      }, {
+        "id": "describe_services",
+        "tql": {
+          "parameters": [{
+            "name": "cluster",
+            "default": {
+              "text": "stage-cluster"
+            },
+            "type": "STRING"
+          }],
+          "tql": "SELECT * FROM aws_ecs_demo.describe_services\n  WHERE services=(SELECT ['web'])\n  AND cluster=@cluster\n  \n   -- function run(params) {\n   -- var body = {\"cluster\": params.cluster, \"services\": ['code', 'task', 'schedule', 'execution', 'auth', 'web']};\n   -- return api.run(\"aws_ecs.describe_services\", {body: body})[0].services\n \n\n/*\n * For sample code and reference material, visit\n * https://api-composition.transposit.com/get-started/sql-quickstart\n */"
+        }
+      }, {
+        "id": "create_cluster",
+        "tql": {
+          "tql": "SELECT * FROM aws_ecs_stage.create_cluster\n  WHERE clusterName='<string>'\n  AND tags=(SELECT [])\n\n/*\n * For sample code and reference material, visit\n * https://api-composition.transposit.com/get-started/sql-quickstart\n */"
+        }
       }],
       "dataConnections": [{
         "ref": "aws_basic",
