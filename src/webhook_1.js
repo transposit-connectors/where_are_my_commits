@@ -16,6 +16,7 @@
   })[0];
 
   api.log(commit);
+
   var stageToNumberMap = api.run("this.stageNumberMap")[0];
   return getMessage();
 
@@ -26,14 +27,27 @@
     } else if (commit.env === "PROD") {
       return `This commit (${commit.message}) is on prod!`;
     }
-    
+
     var stageNumber = stageToNumberMap[commit.env];
+
+    var containsDynamicConfig = false;
+    commit.commit.files.forEach((file) => {
+      if (file.fileName.includes("dynamic_configuration.yml")) {
+        containsDynamicConfig = true;
+      }
+    });
+
+    if (containsDynamicConfig && commit.files.length == 1) {
+      var ending1 = stageNumber < 1 ? "and it will be in prod shortly." :  "and that already been deployed.";
+      return `This commit only contained a dynamic configuration change ${ending}`;
+    }
+
     if (stageNumber < 1) { // master
       message += "This commit just got merged into master.\nIt will be on Demo soon\n";
     } else {
       message += `This commit (${commit.message}) is on ${commit.env}.\n`;
     }
-    
+
     if (stageNumber < 2) { // on demo
       var toStaging = now.clone().startOf('day').add(deployHour, 'hours').add(1, 'days').calendar();
       message += `It will be on *Staging* ${toStaging}\n`;
@@ -52,7 +66,12 @@
         var toProd = now.clone().startOf('day').add(deployHour, 'hours').add(daysToAdd, 'days').calendar();
         message += toProd;
       }
-      message += " (prod deployment is enabled)";
+      message += " (prod deployment is enabled)\n";
+    }
+
+    if (containsDynamicConfig) {
+      var ending2 = stageNumber < 1 ? "will be deployed shortly" : "have already been deployed";
+      message += `The dynamic configuration changes in this commit ${ending}`
     }
 
     api.log(message);
