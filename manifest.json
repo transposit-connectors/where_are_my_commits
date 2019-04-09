@@ -131,6 +131,8 @@
             "type": "OBJECT"
           }],
           "js": "webhook_1.js"
+        },
+        "access": {
         }
       }],
       "dataConnections": [{
