@@ -1,5 +1,11 @@
 (params) => {
-  return api.run("this.FindCommit")[0].message;
+  var a = [{"foo": "bar"}];
+  api.log([]);
+  api.log({});
+  var b = {"foo": "bar"};
+  api.log(a);
+  api.log(b);
+  return a;
   return {
     mission: "complete"
   };

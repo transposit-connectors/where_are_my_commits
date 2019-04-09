@@ -21,10 +21,9 @@
     stagingCommit: deployedCommits[1],
     prodCommit: deployedCommits[2],
     sha: sha
-  });
+  })[0];
 
   api.log(commit);
-  api.log(commit[0]);
 
   var message = "";
   if (commit.env == "NONE") {
