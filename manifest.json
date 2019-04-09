@@ -61,16 +61,6 @@
           "js": "prodDeployEnabled.js"
         }
       }, {
-        "id": "untitled",
-        "function": {
-          "js": "untitled.js"
-        }
-      }, {
-        "id": "untitled_1",
-        "function": {
-          "js": "untitled_1.js"
-        }
-      }, {
         "id": "untitled_2",
         "tql": {
           "tql": "select * from raw_github.repos_owner_repo_commits_get \n  WHERE owner='transposit'\n  AND repo='transposit'\n  and per_page = 100\n"
@@ -100,6 +90,29 @@
         "id": "create_cluster",
         "tql": {
           "tql": "SELECT * FROM aws_ecs_stage.create_cluster\n  WHERE clusterName='<string>'\n  AND tags=(SELECT [])\n\n/*\n * For sample code and reference material, visit\n * https://api-composition.transposit.com/get-started/sql-quickstart\n */"
+        }
+      }, {
+        "id": "GetDeployedCommits",
+        "function": {
+          "js": "untitled.js"
+        }
+      }, {
+        "id": "FindCommit",
+        "function": {
+          "parameters": [{
+            "name": "demoCommit",
+            "type": "STRING"
+          }, {
+            "name": "stagingCommit",
+            "type": "STRING"
+          }, {
+            "name": "prodCommit",
+            "type": "STRING"
+          }, {
+            "name": "sha",
+            "type": "STRING"
+          }],
+          "js": "untitled_1.js"
         }
       }],
       "dataConnections": [{

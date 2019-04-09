@@ -8,6 +8,13 @@
     }
   });
   api.log(sha);
+  
+  var deployedCommits = api.run("this.getDeployedCommits");
+  var foundCommit = api.run("this.findCommit", {demoCommit: deployedCommits[0], 
+                                                stagingCommit: deployedCommits[1], 
+                                                prodCommit: deployedCommits[2], 
+                                                sha: sha});
+  
   // get the head of prod
   // get the head of staging -> see if the commit is in between those and if it is then it's on prod
   // get the head of demo
