@@ -50,7 +50,8 @@
     }
     
   }
-                    
+     
+  api.log(message);
                 
   return {
     status_code: 200,
