@@ -20,7 +20,7 @@
     var thisCommitIndex = thisCommit.transposit_index;
 
     if (thisCommitIndex < demoIndex) {
-      commitEnv = "NOT_YET";
+      commitEnv = "MASTER";
     } else if (thisCommitIndex < stagingIndex) {
       commitEnv = "DEMO";
     } else if (thisCommitIndex < prodIndex) {
@@ -32,6 +32,7 @@
   
   return {
     env: commitEnv,
+    commit: thisCommit,
     message: thisCommit ? thisCommit.commit.message : ""
   };
 }

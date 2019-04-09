@@ -16,13 +16,24 @@
   })[0];
 
   api.log(commit);
+  var stageToNumberMap = api.run("this.stageNumberMap")[0];
+  getMessage();
+  
+  function getMessage() {
+    api.log(sha);
+    api.log(commit);
+  }
 
   var message = "";
   if (commit.env == "NONE") {
     message = "This is not a commit.";
   } else if (commit.env === "PROD") {
     message = `This commit (${commit.message}) is on prod!`;
-  }
+  } 
+  
+  // 0: master | 1: demo | 2: staging | 3: prod
+  
+
   else {
     if (commit.env === "NOT_YET") {
       message += "This commit just got merged into master.\nIt will be on Demo soon\n";

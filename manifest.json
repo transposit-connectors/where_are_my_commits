@@ -135,6 +135,11 @@
         "access": {
           "requireUser": true
         }
+      }, {
+        "id": "stageNumberMap",
+        "function": {
+          "js": "stageNumberMap.js"
+        }
       }],
       "dataConnections": [{
         "ref": "aws_basic",
