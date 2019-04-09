@@ -24,6 +24,8 @@
     var message = "";
     if (commit.env == "NONE") {
       return "This is not a commit.";
+    } else if (commit.env === "DEV") {
+      return "Is this commit still in development?";
     } else if (commit.env === "PROD") {
       return `This commit (${commit.message}) is on prod!`;
     }

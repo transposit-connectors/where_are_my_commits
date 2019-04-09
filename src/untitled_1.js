@@ -1,4 +1,5 @@
 (params) => {
+  var moment = require('moment-timezone-with-data.js');
   var commits = api.run("this.GetCommitMap")[0];
   var demoIndex = commits[params.demoCommit].transposit_index;
   var stagingIndex = commits[params.stagingCommit].transposit_index;
@@ -10,8 +11,15 @@
   var thisCommit= commits[params.sha];
   if (!thisCommit) {
     try {
-      api.run("this.get_commit", {sha: params.sha});
-      commitEnv = "PROD";
+      thisCommit = api.run("this.get_commit", {sha: params.sha})[0];
+      var commitDate = moment(thisCommit.commit.committer.date).tz("America/Los_Angeles");
+      api.log(thisCommit.commit.committer.date);
+      api.log(commitDate);
+      if (commitDate.isAfter(moment().subtract(5, 'days'))) {
+      	commitEnv = "DEV";    
+      } else {
+      	commitEnv = "PROD";
+      }
     
     } catch (err) {
       commitEnv = "NONE";
@@ -30,7 +38,7 @@
     }
   }
   
-  if (thisCommit) {
+  if (thisCommit && !thisCommit.commit.files) {
     // Replace the commit with all the details so we can get its files
     thisCommit = api.run("this.get_commit", {sha: params.sha})[0];
   }
