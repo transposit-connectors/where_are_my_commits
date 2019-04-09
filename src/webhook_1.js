@@ -17,44 +17,36 @@
 
   api.log(commit);
   var stageToNumberMap = api.run("this.stageNumberMap")[0];
-  getMessage();
-  
-  function getMessage() {
-    api.log(sha);
-    api.log(commit);
-  }
+  return getMessage();
 
-  var message = "";
-  if (commit.env == "NONE") {
-    message = "This is not a commit.";
-  } else if (commit.env === "PROD") {
-    message = `This commit (${commit.message}) is on prod!`;
-  } 
-  
-  // 0: master | 1: demo | 2: staging | 3: prod
-  
-
-  else {
-    if (commit.env === "NOT_YET") {
-      message += "This commit just got merged into master.\nIt will be on Demo soon\n";
-    } else {
-      message += `This commit (${commit.message}) is on ${commit.env}.\n`;  
+  function getMessage () {
+    var message = "";
+    if (commit.env == "NONE") {
+      return "This is not a commit.";
+    } else if (commit.env === "PROD") {
+      return `This commit (${commit.message}) is on prod!`;
     }
     
-    if (commit.env !== "STAGING") {
+    var stageNumber = stageToNumberMap[commit.env];
+    if (stageNumber < 1) { // master
+      message += "This commit just got merged into master.\nIt will be on Demo soon\n";
+    } else {
+      message += `This commit (${commit.message}) is on ${commit.env}.\n`;
+    }
+    
+    if (stageNumber < 2) { // on demo
       var toStaging = now.clone().startOf('day').add(deployHour, 'hours').add(1, 'days').calendar();
       message += `It will be on *Staging* ${toStaging}\n`;
     }
 
-    // Prod regardless
     if (!prodDeployEnabled) {
       message += `Prod deploy is *disabled*, so it's unclear when it will make it to prod.`;
     } else {
       message += "It will be on *Prod* ";
       if (["Friday", "Saturday", "Sunday"].includes(now.clone().format("dddd"))) {
-        var tuesday = now.clone().startOf('day').add(deployHour, 'hours').day(2).calendar();  
+        var tuesday = now.clone().startOf('day').add(deployHour, 'hours').day(2).calendar();
         message += tuesday;
-        
+
       } else {
         var daysToAdd = commit.env !== "STAGING" ? 2 : 1;
         var toProd = now.clone().startOf('day').add(deployHour, 'hours').add(daysToAdd, 'days').calendar();
@@ -62,10 +54,10 @@
       }
       message += " (prod deployment is enabled)";
     }
-  }
 
-  api.log(message);
-  return message;
+    api.log(message);
+    return message;
+  }
 }
 
 /*
