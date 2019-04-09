@@ -133,6 +133,18 @@
         "function": {
           "js": "MakeSlackMessage.js"
         }
+      }, {
+        "id": "webhook_1",
+        "function": {
+          "parameters": [{
+            "name": "http_event",
+            "default": {
+              "text": "{\"http_method\": \"GET\", \"query_parameters\": {}, \"headers\": {}, \"body\": \"\"}"
+            },
+            "type": "OBJECT"
+          }],
+          "js": "webhook_1.js"
+        }
       }],
       "dataConnections": [{
         "ref": "aws_basic",
