@@ -32,7 +32,7 @@
       </g>
     </svg>
     <h1>
-      <input style="width: 40px; text-align: center" id="sha" label="SHA:"/>
+      <input style="width: 300px; text-align: center" id="sha" placeholder="Git SHA"/>
   <button style="text-align:center" id="runOperationBtn">Click</button>
     </h1>
   
@@ -54,6 +54,7 @@
   <script>
     $("#failure").hide();
     $("#success").hide();
+    $("#loading").hide();
     
     $("#runOperationBtn").click(function() {
 
@@ -65,18 +66,19 @@
         }
 
         const results = response.result.results;
+        $("#results").text(results[0]);
 
-        if (results.length === 0) {
-          $("#results").text("None");
-        } else {
-          const resultsHtml = $("<ul>").addClass("list-group");
-          for (const result of results) {
-            resultsHtml.append(
-                $("<li>").addClass("list-group-item").text(result.message)
-            );
-          }
-          $("#results").append(resultsHtml);
-        }
+        // if (results.length === 0) {
+        //   $("#results").text("None");
+        // } else {
+        //   const resultsHtml = $("<ul>").addClass("list-group");
+        //   for (const result of results) {
+        //     resultsHtml.append(
+        //         $("<li>").addClass("list-group-item").text(result.message)
+        //     );
+        //   }
+        //   $("#results").append(resultsHtml);
+        // }
 
         $("#loading").hide();
         $("#success").show();
