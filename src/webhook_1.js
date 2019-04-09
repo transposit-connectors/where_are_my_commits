@@ -43,6 +43,7 @@
         var toProd = moment().startOf('day').add(deployHour, 'hours').add(daysToAdd, 'days').calendar();
         message += toProd;
       }
+      message += " (prod deployment is enabled)";
     }
   }
 
