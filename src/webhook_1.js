@@ -25,7 +25,7 @@
     if (commit.env == "NONE") {
       return "This is not a commit.";
     } else if (commit.env === "DEV") {
-      return "Is this commit still in development?";
+      return "Is this commit a development commit? Please use a commit that was merged into master.";
     } else if (commit.env === "PROD") {
       return `This commit (${commit.message}) is on prod!`;
     }
