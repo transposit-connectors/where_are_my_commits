@@ -61,7 +61,7 @@
       message += "It will be on *Prod* ";
       var dayOfWeek = now.clone().format("dddd");
       if (["Thursday", "Friday", "Saturday", "Sunday"].includes(dayOfWeek)) {
-        var days = dayOfWeek == "Sunday" ? 9 : 2;
+        var days = dayOfWeek == "Sunday" ? 2 : 9;
         var tuesday = now.clone().startOf('day').add(deployHour, 'hours').day(days).calendar();
         message += tuesday;
 
