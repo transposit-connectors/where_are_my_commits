@@ -59,8 +59,10 @@
       message += `Prod deploy is *disabled*, so it's unclear when it will make it to prod.`;
     } else {
       message += "It will be on *Prod* ";
-      if (["Thursday", "Friday", "Saturday", "Sunday"].includes(now.clone().format("dddd"))) {
-        var tuesday = now.clone().startOf('day').add(deployHour, 'hours').day(2).calendar();
+      var dayOfWeek = now.clone().format("dddd");
+      if (["Thursday", "Friday", "Saturday", "Sunday"].includes(dayOfWeek)) {
+        var days = dayOfWeek == "Sunday" ? 9 : 2;
+        var tuesday = now.clone().startOf('day').add(deployHour, 'hours').day(days).calendar();
         message += tuesday;
 
       } else {
