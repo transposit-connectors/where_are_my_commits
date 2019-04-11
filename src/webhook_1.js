@@ -59,7 +59,7 @@
       message += `Prod deploy is *disabled*, so it's unclear when it will make it to prod.`;
     } else {
       message += "It will be on *Prod* ";
-      if (["Friday", "Saturday", "Sunday"].includes(now.clone().format("dddd"))) {
+      if (["Thursday", "Friday", "Saturday", "Sunday"].includes(now.clone().format("dddd"))) {
         var tuesday = now.clone().startOf('day').add(deployHour, 'hours').day(2).calendar();
         message += tuesday;
 
