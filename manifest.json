@@ -147,6 +147,11 @@
         "tql": {
           "tql": "SELECT * FROM github.get_git_tree\n  WHERE owner='transposit'\n  AND shaCode='2f89bec90c6bb5891c82ad645edecc532cd874d7'\n  AND repo='transposit'\n  \n\n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
         }
+      }, {
+        "id": "untitled_3",
+        "function": {
+          "js": "untitled_3.js"
+        }
       }],
       "dataConnections": [{
         "ref": "aws_basic",
