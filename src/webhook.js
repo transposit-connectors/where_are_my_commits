@@ -1,5 +1,6 @@
 ({http_event}) => {
   console.log(http_event);
+  
   var sha;
   var shaArray = http_event.body.split("&");
   shaArray.forEach((entry) => {
@@ -8,7 +9,8 @@
     }
   });
   api.log(sha);
-  api.runForAllUsers("this.MakeSlackMessage", {sha: sha});
+  api.runAsync("this.MakeSlackMessage", {sha: sha});
+  
   return {
     status_code: 200,
     headers: {"Content-Type": "application/json"},
