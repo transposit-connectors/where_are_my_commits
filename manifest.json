@@ -22,6 +22,9 @@
       }, {
         "name": "transposit/slack:v1.*.*",
         "alias": "slack"
+      }, {
+        "name": "nina/slack_webhook:latest",
+        "alias": "slack_webhook"
       }],
       "operations": [{
         "id": "webhook",
