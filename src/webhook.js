@@ -8,7 +8,7 @@
     if (entry.startsWith("text=")) {
       sha = entry.substring(5);
     } else if (entry.startsWith("responseUrl=")) {
-      responseUrl = entry.substring("responseUrl=").length);
+      responseUrl = entry.substring("responseUrl=".length));
     }
   });
   api.log(sha);
