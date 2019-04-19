@@ -1,14 +1,14 @@
 (params) => {
-  var commitEnv;
-   try {
-      api.run("this.get_commit", {sha: params.sha});
-      commitEnv = "PROD";
-    
-    } catch (err) {
-      commitEnv = "NONE";
-    }
+  var message = api.run("this.MakeSlackMessage", {sha: params.sha});
+  var body = {text: message};
   
-  return commitEnv;
+  // Not url-decoding out of laziness
+  var urlArr = params.responseUrl.split("%2F");
+  var parts = urlArr.slice(urlArr.length - 3);
+  return parts;
+  
+  api.run("slack_webhook.send_slash_command_response", {first: parts[0], second: parts[1], third: parts[2], $body: body})
+
   return {
     mission: "complete"
   };

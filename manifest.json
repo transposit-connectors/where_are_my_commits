@@ -118,15 +118,6 @@
           "js": "GetCommitMap.js"
         }
       }, {
-        "id": "untitled_2",
-        "function": {
-          "parameters": [{
-            "name": "sha",
-            "type": "STRING"
-          }],
-          "js": "untitled_2.js"
-        }
-      }, {
         "id": "MakeSlackMessage",
         "function": {
           "parameters": [{
@@ -157,6 +148,32 @@
         "id": "untitled_3",
         "function": {
           "js": "untitled_3.js"
+        }
+      }, {
+        "id": "post_chat_message",
+        "tql": {
+          "tql": "SELECT * FROM slack.post_chat_message\n  WHERE $body=(SELECT {\n    'icon_url' : '<string>',\n    'link_names' : <boolean>,\n    'attachments' : '<string>',\n    'icon_emoji' : '<string>',\n    'channel' : '<string>',\n    'parse' : '<string>',\n    'mrkdwn' : <boolean>,\n    'as_user' : <boolean>,\n    'thread_ts' : <number>,\n    'unfurl_media' : <boolean>,\n    'unfurl_links' : <boolean>,\n    'reply_broadcast' : <boolean>,\n    'text' : '<string>',\n    'username' : '<string>'\n  })\n\n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
+        }
+      }, {
+        "id": "send_slash_command_response",
+        "tql": {
+          "parameters": [{
+            "name": "messageBody",
+            "type": "OBJECT"
+          }],
+          "tql": "SELECT * FROM slack_webhook.send_slash_command_response\n  WHERE first='T2615V5UK'\n  AND second='613761348277'\n  AND third='5gakeMCMfWM5pB7O3KoAEvES'\n  AND $body=@messageBody\n\n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
+        }
+      }, {
+        "id": "HandleSlackResponse",
+        "function": {
+          "parameters": [{
+            "name": "sha",
+            "type": "STRING"
+          }, {
+            "name": "responseUrl",
+            "type": "STRING"
+          }],
+          "js": "untitled_2.js"
         }
       }],
       "dataConnections": [{

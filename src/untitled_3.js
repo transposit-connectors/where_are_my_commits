@@ -1,5 +1,6 @@
 (params) => {
-  api.runAsync("this.MakeSlackMessage", {sha: "fd91dc860be055a81c293358acbb6f62ea1536cd"});
+  var http = require('http');
+  // api.runAsync("this.MakeSlackMessage", {sha: "fd91dc860be055a81c293358acbb6f62ea1536cd"});
   return {
     mission: "complete"
   };
