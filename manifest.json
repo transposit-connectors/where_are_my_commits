@@ -12,9 +12,6 @@
         "alias": "raw_github"
       }, {
         "name": "transposit/aws_ecs:v3.*.*",
-        "alias": "aws_ecs"
-      }, {
-        "name": "transposit/aws_ecs:v3.*.*",
         "alias": "aws_ecs_staging"
       }, {
         "name": "transposit/aws_ecs:v3.*.*",
