@@ -1,5 +1,5 @@
 (params) => {
-  var message = api.run("this.MakeSlackMessage", {sha: params.sha});
+  var message = api.run("this.MakeSlackMessage", {sha: params.sha})[0];
   var body = {text: message};
   
   // Not url-decoding out of laziness
