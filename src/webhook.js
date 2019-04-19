@@ -1,5 +1,5 @@
 ({http_event}) => {
-  console.log(http_event);
+  api.log(http_event);
   
   var sha;
   var shaArray = http_event.body.split("&");
