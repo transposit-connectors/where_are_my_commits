@@ -7,12 +7,12 @@
   shaArray.forEach((entry) => {
     if (entry.startsWith("text=")) {
       sha = entry.substring(5);
-    } else if (entry.startsWith("responseUrl=")) {
-      responseUrl = entry.substring("responseUrl=".length);
+    } else if (entry.startsWith("response_url=")) {
+      responseUrl = entry.substring("response_url=".length);
     }
   });
   api.log(sha);
-  api.runAsync("this.HandleSlackResponse", {sha: sha, responseUrl:responseUrl});
+  api.runAsync("this.HandleSlackResponse", {sha: sha, responseUrl : responseUrl});
   
   return {
     status_code: 200,
