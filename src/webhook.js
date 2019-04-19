@@ -14,7 +14,7 @@
   return {
     status_code: 200,
     headers: {"Content-Type": "application/json"},
-    body: {text: "Getting deployment info..."}
+    body: {text: "Getting deployment info for " + sha + "..."}
   };
 
 }

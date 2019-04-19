@@ -1,5 +1,5 @@
 (params) => {
-  api.run("this.MakeSlackMessage", {sha: "fd91dc860be055a81c293358acbb6f62ea1536cd"});
+  api.runAsync("this.MakeSlackMessage", {sha: "fd91dc860be055a81c293358acbb6f62ea1536cd"});
   return {
     mission: "complete"
   };
