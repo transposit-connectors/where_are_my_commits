@@ -158,10 +158,10 @@
         "ref": "github.raw",
         "requireConsumerSignin": true
       }, {
-        "ref": "raw_github",
-        "requireConsumerSignin": true
+        "ref": "raw_github"
       }, {
-        "ref": "aws_ecs_staging.raw.aws_basic"
+        "ref": "aws_ecs_staging.raw.aws_basic",
+        "requireConsumerSignin": true
       }],
       "javascriptAPIVersion": "3",
       "source": "src"
