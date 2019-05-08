@@ -157,6 +157,9 @@
       }, {
         "ref": "github.raw",
         "requireConsumerSignin": true
+      }, {
+        "ref": "raw_github",
+        "requireConsumerSignin": true
       }],
       "javascriptAPIVersion": "3",
       "source": "src"
