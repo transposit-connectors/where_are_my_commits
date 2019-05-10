@@ -167,6 +167,11 @@
         "description": "Check this box if you'd like fun messages with emojis! Uncheck if you want boring messages.",
         "type": "BOOLEAN",
         "default": "true"
+      }, {
+        "name": "git_org",
+        "description": "The github organization",
+        "type": "STRING",
+        "default": "transposit"
       }],
       "userSettingsDisplay": "GENERATED"
     }
