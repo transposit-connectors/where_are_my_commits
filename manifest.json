@@ -193,7 +193,6 @@
         "overrides": {
           "swagger": {
             "oauthConfig": {
-              "scope": "team:read"
             },
             "executionLimits": {
             }
