@@ -3,7 +3,10 @@
   var urlArr = params.responseUrl.split("%2F");
   var parts = urlArr.slice(urlArr.length - 3);
   
+  api.log(parts);
+  
   var username = user_setting.get("github_username");
+  api.log(username);
   if (!username) {
     var message = "Please provide your github username in the user settings!";
     var body = {text: message};
