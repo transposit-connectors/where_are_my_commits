@@ -2,14 +2,13 @@
   var qs = require('qs.js');
   
   api.log(http_event);
-  api.log(api.listUsers());
   
     
   var parsedBody = qs.parse(http_event.body);
-  api.log(parsedBody);
   var responseUrl = parsedBody.response_url;
   var email = parsedBody.text;
   var slackUser = parsedBody.user_name;
+
 
   var foundUserEmail = api.run("this.FindUser", {slackUsername: slackUser});
   api.log(foundUserEmail);
@@ -23,7 +22,7 @@
   }
   
   // api.log(sha);
-  api.runAsync("this.HandleSlackResponse", {responseUrl : responseUrl}, {asUser: foundUser.email});
+  api.runAsync("this.HandleSlackResponse", {responseUrl : responseUrl}, {asUser: foundUserEmail[0]});
   
 
   
