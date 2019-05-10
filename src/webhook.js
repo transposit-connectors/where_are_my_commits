@@ -10,7 +10,7 @@
   var slackUser = parsedBody.user_name;
 
 
-  var foundUserEmail = api.run("this.FindUser", {slackUsername: slackUser});
+  var foundUserEmail = api.run("this.FindUser", {slackUsername: slackUser})[0];
   api.log("found user email");
   api.log(foundUserEmail);
   
@@ -23,7 +23,7 @@
   }
   
   // api.log(sha);
-  api.runAsync("this.HandleSlackResponse", {responseUrl : responseUrl}, {asUser: foundUserEmail[0]});
+  api.runAsync("this.HandleSlackResponse", {responseUrl : responseUrl}, {asUser: foundUserEmail});
   
 
   
