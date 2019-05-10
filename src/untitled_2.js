@@ -28,6 +28,7 @@
       var newMessage = api.run("this.MakeSlackMessage", {sha: sha, commitMap: commitMap})[0];
       allMessages += newMessage;
       allMessages += "\n";
+      allMessages += "--------------------------------------------"
     }
   })
   
