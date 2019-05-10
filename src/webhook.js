@@ -12,7 +12,9 @@
   var slackUser = parsedBody.user_name;
   
   var foundUser;
-  api.listUsers().forEach(user -> {
+  var users = api.listUsers();
+
+  users.forEach((user) => {
     if (user.email == parsedBody.text) {
       foundUser = true;
     }
