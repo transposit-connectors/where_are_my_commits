@@ -149,9 +149,18 @@
           "js": "GetCommitMap.js"
         }
       }, {
-        "id": "untitled_3",
+        "id": "FindUser",
         "function": {
-          "js": "untitled_3.js"
+          "parameters": [{
+            "name": "slackUsername",
+            "type": "STRING"
+          }],
+          "js": "FindUser.js"
+        }
+      }, {
+        "id": "get_user_settings_for_user",
+        "function": {
+          "js": "get_user_settings_for_user.js"
         }
       }],
       "dataConnections": [{

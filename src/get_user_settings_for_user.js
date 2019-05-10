@@ -1,10 +1,6 @@
 (params) => {
-  api.listUsers().forEach(user > {
-    api.log({foo: foobar}
-  })
-  return {
-    mission: "complete"
-  };
+  return {github_username: user_setting.get("github_username"),
+         slack_username: user_setting.get("slack_username")};
 }
 
 /*
