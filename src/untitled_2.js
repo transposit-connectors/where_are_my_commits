@@ -1,6 +1,6 @@
 (params) => {
   
-  var urlArr = params.responseUrl.split("%2F");
+  var urlArr = params.responseUrl.split("/");
   var parts = urlArr.slice(urlArr.length - 3);
   
   api.log(parts);
