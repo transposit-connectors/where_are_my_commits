@@ -14,7 +14,7 @@
     demoCommit: deployedCommits[0],
     stagingCommit: deployedCommits[1],
     prodCommit: deployedCommits[2],
-    commitMap: commitMap;
+    commitMap: params.commitMap;
   })[0];
 
   api.log(commit);
