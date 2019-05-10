@@ -174,7 +174,8 @@
         "ref": "aws_ecs_staging.raw.aws_basic"
       }, {
         "ref": "slack.raw",
-        "requireConsumerSignin": true
+        "requireConsumerSignin": true,
+        "title": "Slack"
       }],
       "javascriptAPIVersion": "3",
       "source": "src",
