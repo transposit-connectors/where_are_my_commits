@@ -30,8 +30,6 @@
   
   var body = {text: allMessages};
   
-  // Not url-decoding out of laziness
-  
   
   return api.run("slack_webhook.send_slash_command_response", {first: parts[0], second: parts[1], third: parts[2], $body: body})
 }
