@@ -1,5 +1,7 @@
 ({http_event}) => {
+  
   api.log(http_event);
+  api.log(api.users();)
   
   // var sha;
   var responseUrl;
