@@ -188,6 +188,17 @@
           }
         },
         "title": "Slack"
+      }, {
+        "ref": "slack_internal.raw",
+        "overrides": {
+          "swagger": {
+            "oauthConfig": {
+              "scope": "team:read"
+            },
+            "executionLimits": {
+            }
+          }
+        }
       }],
       "javascriptAPIVersion": "3",
       "source": "src",
