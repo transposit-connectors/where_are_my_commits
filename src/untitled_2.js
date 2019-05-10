@@ -22,7 +22,8 @@
   Object.keys(commitMap).forEach(sha => {
     var commit = commitMap[sha];
     api.log(commit);
-    if (commit.author.login == username) {
+  
+    if (commit.author && commit.author.login == username) {
       var newMessage = api.run("this.MakeSlackMessage", {sha: sha, commitMap: commitMap})[0];
       allMessages += newMessage;
       allMessages += "\n";
