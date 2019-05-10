@@ -172,6 +172,11 @@
         "description": "The github organization",
         "type": "STRING",
         "default": "transposit"
+      }, {
+        "name": "git_repo",
+        "description": "The github repo",
+        "type": "STRING",
+        "default": "transposit"
       }],
       "userSettingsDisplay": "GENERATED"
     }
