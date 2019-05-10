@@ -156,7 +156,8 @@
         }
       }, {
         "ref": "github.raw",
-        "requireConsumerSignin": true
+        "requireConsumerSignin": true,
+        "title": "Github"
       }, {
         "ref": "raw_github"
       }, {
