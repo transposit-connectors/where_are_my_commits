@@ -11,6 +11,7 @@
 
 
   var foundUserEmail = api.run("this.FindUser", {slackUsername: slackUser});
+  api.log("found user email");
   api.log(foundUserEmail);
   
   if (!foundUserEmail) {
