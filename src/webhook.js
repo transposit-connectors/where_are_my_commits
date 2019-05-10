@@ -8,8 +8,23 @@
   var parsedBody = qs.parse(http_event.body);
   api.log(parsedBody);
   var responseUrl = parsedBody.response_url;
-  var email = parsedBody.email;
-  var slackUser = parsedBody.user;
+  var email = parsedBody.text;
+  var slackUser = parsedBody.user_name;
+  
+  var foundUser;
+  api.listUsers().forEach(user -> {
+    if (user.email == parsedBody.text) {
+      foundUser = true;
+    }
+  });
+  
+  if (!foundUser) {
+      return {
+    status_code: 200,
+    headers: {"Content-Type": "application/json"},
+    body: {text: "Please set up this app! " + "https://where-are-my-commits-ns2jm.demo-transposit.com"}
+  };
+  }
   
   
   // var sha;
