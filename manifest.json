@@ -165,6 +165,12 @@
       }],
       "javascriptAPIVersion": "3",
       "source": "src",
+      "userSettings": [{
+        "name": "fun_messages",
+        "description": "Check this box if you'd like fun messages with emojis! Uncheck if you want boring messages.",
+        "type": "BOOLEAN",
+        "default": "true"
+      }],
       "userSettingsDisplay": "GENERATED"
     }
   }
