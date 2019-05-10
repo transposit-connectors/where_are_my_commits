@@ -30,7 +30,7 @@
     } else if (commit.env === "DEV") {
       return "Is this commit a development commit? Please use a commit that was merged into master.";
     } else if (commit.env === "PROD") {
-      return `This commit (${commit.message}) is on prod!`;
+      return `${commit.message} is on prod!`;
     }
 
     var stageNumber = stageToNumberMap[commit.env];
@@ -44,13 +44,13 @@
 
     if (containsDynamicConfig && commit.commit.files.length == 1) {
       var ending1 = stageNumber < 1 ? "and it will be in prod shortly." :  "and that already been deployed.";
-      return `This commit (${commit.message}) only contained a dynamic configuration change ${ending1}`;
+      return `${commit.message} only contained a dynamic configuration change ${ending1}`;
     }
 
     if (stageNumber < 1) { // master
-      message += "This commit just got merged into master.\nIt will be on Demo soon\n";
+      message += `${commit.message} just got merged into master.\nIt will be on Demo soon\n`;
     } else {
-      message += `This commit (${commit.message}) is on ${commit.env}.\n`;
+      message += `${commit.message} is on ${commit.env}.\n`;
     }
 
     if (stageNumber < 2) { // on demo
