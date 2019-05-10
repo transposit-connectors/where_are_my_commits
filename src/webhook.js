@@ -28,7 +28,7 @@
   };
   }
   
-  
+  api.log(foundUserEmail);
   // api.log(sha);
   api.runAsync("this.HandleSlackResponse", {responseUrl : responseUrl}, {asUser: foundUserEmail});
   
