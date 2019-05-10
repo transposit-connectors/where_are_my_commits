@@ -231,16 +231,6 @@
         "type": "BOOLEAN",
         "default": "true"
       }, {
-        "name": "git_org",
-        "description": "The github organization",
-        "type": "STRING",
-        "default": "transposit"
-      }, {
-        "name": "git_repo",
-        "description": "The github repo",
-        "type": "STRING",
-        "default": "transposit"
-      }, {
         "name": "github_username",
         "description": "Your github username for the Transposit org",
         "type": "STRING"
