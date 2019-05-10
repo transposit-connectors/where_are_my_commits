@@ -177,6 +177,10 @@
         "description": "The github repo",
         "type": "STRING",
         "default": "transposit"
+      }, {
+        "name": "github_username",
+        "description": "Your github username for the Transposit org",
+        "type": "STRING"
       }],
       "userSettingsDisplay": "GENERATED"
     }
