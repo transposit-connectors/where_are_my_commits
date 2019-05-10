@@ -85,18 +85,11 @@
               "text": "99933565881de573346eb83fe8b0fe8e3a911a53"
             },
             "type": "STRING"
+          }, {
+            "name": "commitMap",
+            "type": "OBJECT"
           }],
           "js": "untitled_1.js"
-        }
-      }, {
-        "id": "ListGitCommits",
-        "tql": {
-          "tql": "select * from raw_github.repos_owner_repo_commits_get \n  WHERE owner='transposit'\n  AND repo='transposit'\n  and per_page = 100\n  -- default sha will be master\n"
-        }
-      }, {
-        "id": "GetCommitMap",
-        "function": {
-          "js": "GetCommitMap.js"
         }
       }, {
         "id": "MakeSlackMessage",
@@ -104,6 +97,9 @@
           "parameters": [{
             "name": "sha",
             "type": "STRING"
+          }, {
+            "name": "commitMap",
+            "type": "OBJECT"
           }],
           "js": "webhook_1.js"
         },
@@ -116,11 +112,6 @@
           "js": "stageNumberMap.js"
         }
       }, {
-        "id": "list_branches_for_repo",
-        "tql": {
-          "tql": "SELECT * FROM raw_github.repos_owner_repo_branches_get\n  WHERE owner='transposit'\n  AND repo='transposit'\n  and per_page=100\n  \n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
-        }
-      }, {
         "id": "get_git_tree",
         "tql": {
           "tql": "SELECT * FROM github.get_git_tree\n  WHERE owner='transposit'\n  AND shaCode='2f89bec90c6bb5891c82ad645edecc532cd874d7'\n  AND repo='transposit'\n  \n\n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
@@ -129,13 +120,30 @@
         "id": "HandleSlackResponse",
         "function": {
           "parameters": [{
-            "name": "sha",
-            "type": "STRING"
-          }, {
             "name": "responseUrl",
             "type": "STRING"
           }],
           "js": "untitled_2.js"
+        }
+      }, {
+        "id": "list_commits",
+        "tql": {
+          "tql": "SELECT * FROM github.list_commits\n  WHERE owner='transposit'\n  AND repo='transposit'\n  LIMIT 100\n  \n\n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
+        }
+      }, {
+        "id": "get_user",
+        "tql": {
+          "tql": "SELECT * FROM github.get_user_authenticated\n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
+        }
+      }, {
+        "id": "GetRecentCommitMap",
+        "function": {
+          "js": "GetRecentCommitMap.js"
+        }
+      }, {
+        "id": "zGetCommitMap",
+        "function": {
+          "js": "GetCommitMap.js"
         }
       }],
       "dataConnections": [{

@@ -1,6 +1,6 @@
 (params) => {
   var moment = require('moment-timezone-with-data.js');
-  var commits = api.run("this.GetCommitMap")[0];
+  var commits = params.commitMap;
   var demoIndex = commits[params.demoCommit].transposit_index;
   var stagingIndex = commits[params.stagingCommit].transposit_index;
   var prodIndex = commits[params.prodCommit].transposit_index;

@@ -8,11 +8,13 @@
 
   var prodDeployEnabled = api.run("this.prodDeployEnabled")[0];
   var deployedCommits = api.run("this.GetDeployedCommits");
+  
+  
   var commit = api.run("this.FindCommit", {
     demoCommit: deployedCommits[0],
     stagingCommit: deployedCommits[1],
     prodCommit: deployedCommits[2],
-    sha: sha
+    commitMap: commitMap;
   })[0];
 
   api.log(commit);

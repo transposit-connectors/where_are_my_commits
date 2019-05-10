@@ -1,6 +1,26 @@
 (params) => {
-  var message = api.run("this.MakeSlackMessage", {sha: params.sha})[0];
-  var body = {text: message};
+  
+  var username = user_setting.get("github_username");
+  if (!username) {
+    var message = "Please provide your github username in the user settings!";
+    var body = {text: message};
+    return api.run("slack_webhook.send_slash_command_response", {first: parts[0], second: parts[1], third: parts[2], $body: body})
+    
+  }
+  
+  // Get commits and find commit map
+  var allMessages = "";
+  var commitMap = api.run("this.GetRecentCommitMap");
+  Object.keys(commitMap).forEach(sha => {
+    var commit = commitMap[sha];
+    if (commit.author.login == username) {
+      var newMessage = api.run("this.MakeSlackMessage", {sha: params.sha, commitMap: commitMap})[0];
+      allMessages += newMessage;
+      allMessages += "\n";
+    }
+  })
+  
+  var body = {text: allMessages};
   
   // Not url-decoding out of laziness
   var urlArr = params.responseUrl.split("%2F");
