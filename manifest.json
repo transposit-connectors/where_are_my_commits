@@ -190,7 +190,7 @@
         "overrides": {
           "swagger": {
             "oauthConfig": {
-              "scope": "identity.basic"
+              "scope": "users.profile:read "
             },
             "executionLimits": {
             }
