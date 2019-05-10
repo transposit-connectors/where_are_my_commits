@@ -17,7 +17,8 @@
   
   // Get commits and find commit map
   var allMessages = "";
-  var commitMap = api.run("this.GetRecentCommitMap");
+  var commitMap = api.run("this.GetRecentCommitMap")[0];
+  api.log(commitMap);
   Object.keys(commitMap).forEach(sha => {
     var commit = commitMap[sha];
     if (commit.author.login == username) {
