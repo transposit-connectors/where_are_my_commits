@@ -10,7 +10,7 @@
     }
   // });
   // api.log(sha);
-  api.runAsync("this.HandleSlackResponse", {sha: sha, responseUrl : responseUrl});
+  api.runAsync("this.HandleSlackResponse", {responseUrl : responseUrl});
   
 
   
