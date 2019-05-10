@@ -1,6 +1,8 @@
 (params) => {
   var username = params.slackUsername;
   
+  // here we could do a for each user, if they don't have user settings, dynamically set them
+  
   var foundUserEmail;
   api.listUsers().forEach(user => {
     api.log(user);
