@@ -4,7 +4,7 @@
   var deployHour = now.toString().indexOf("-0700") > -1 ? 5 : 4;
   var dayOfWeek = now.format("dddd");
 
-  var sha = params.sha.trim();
+  var sha = params.sha;
 
   var prodDeployEnabled = api.run("this.prodDeployEnabled")[0];
   var deployedCommits = api.run("this.GetDeployedCommits");
