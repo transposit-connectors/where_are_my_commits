@@ -11,16 +11,16 @@
   var email = parsedBody.text;
   var slackUser = parsedBody.user_name;
   
-  var foundUser;
+  var foundUserEmail;
   var users = api.listUsers();
 
   users.forEach((user) => {
     if (user.email == parsedBody.text) {
-      foundUser = true;
+      foundUserEmail = user.email;
     }
   });
   
-  if (!foundUser) {
+  if (!foundUserEmail) {
       return {
     status_code: 200,
     headers: {"Content-Type": "application/json"},
@@ -29,16 +29,8 @@
   }
   
   
-  // var sha;
-  var responseUrl;
-  var shaArray = http_event.body.split("&");
-  shaArray.forEach((entry) => {
-  	if (entry.startsWith("response_url=")) {
-      responseUrl = entry.substring("response_url=".length);
-    }
-  });
   // api.log(sha);
-  api.runAsync("this.HandleSlackResponse", {responseUrl : responseUrl});
+  api.runAsync("this.HandleSlackResponse", {responseUrl : responseUrl}, {asUser: foundUserEmail});
   
 
   
