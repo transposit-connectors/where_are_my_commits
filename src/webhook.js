@@ -8,7 +8,7 @@
   	if (entry.startsWith("response_url=")) {
       responseUrl = entry.substring("response_url=".length);
     }
-  // });
+  });
   // api.log(sha);
   api.runAsync("this.HandleSlackResponse", {responseUrl : responseUrl});
   
