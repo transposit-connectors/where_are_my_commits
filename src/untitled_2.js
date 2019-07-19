@@ -1,9 +1,15 @@
 (params) => {
   api.log(api.user());
 
-  var username = user_setting.get("github_username");
-  api.log(username);
-  if (!username) {
+  var github = user_setting.get("github_username");
+  if (!github) {
+    if (api.isAuthed("github")) {
+      github = api.run("github.get_user_authenticated")[0].login;
+      user_setting.put("github_username", github);
+    }
+  }
+
+  if (!github) {
     var message = "Please provide your github username in the user settings! https://where-are-my-commits-59556.staging-transposit.com/login";
     var body = {text: message};
     return api.run("slack_webhook.post_to_response_url", {response_url: params.response_url, post_body: body});
