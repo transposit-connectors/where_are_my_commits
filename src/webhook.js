@@ -9,12 +9,11 @@
   var slackUser = parsedBody.user_name;
 
 
-  var foundUserEmail = api.user({type: "slack", userId: parsedBody.user_id, workspaceId: parsedBody.team_id}).email;
+  var foundUser = api.user({type: "slack", userId: parsedBody.user_id, workspaceId: parsedBody.team_id});
 
-  api.log("found user email");
-  api.log(foundUserEmail);
+  api.log(foundUser);
   
-  if (!foundUserEmail) {
+  if (!foundUser) {
       return {
     status_code: 200,
     headers: {"Content-Type": "application/json"},
@@ -24,7 +23,7 @@
   
   // api.log(sha);
   setImmediate(() => {
-  	api.run("this.HandleSlackResponse", {responseUrl : responseUrl}, {asUser: foundUserEmail});  
+  	api.run("this.HandleSlackResponse", {responseUrl : responseUrl}, {asUser: foundUser.id});  
   });
   
   return {
