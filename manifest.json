@@ -228,9 +228,6 @@
         "name": "github_username",
         "description": "Your github username for the Transposit org",
         "type": "STRING"
-      }, {
-        "name": "slack_username",
-        "type": "STRING"
       }],
       "userSettingsDisplay": "GENERATED"
     }
