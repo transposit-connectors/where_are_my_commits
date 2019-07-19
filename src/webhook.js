@@ -4,7 +4,7 @@
   
     
   var parsedBody = http_event.parsed_body;
-  var responseUrl = parsedBody.response_url;
+  var response_url = parsedBody.response_url;
   var email = parsedBody.text;
   var slackUser = parsedBody.user_name;
 
@@ -23,7 +23,7 @@
   
   // api.log(sha);
   setImmediate(() => {
-  	api.run("this.HandleSlackResponse", {responseUrl : responseUrl}, {asUser: foundUser.id});  
+  	api.run("this.HandleSlackResponse", {response_url : response_url}, {asUser: foundUser.id});  
   });
   
   return {

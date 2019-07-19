@@ -117,7 +117,7 @@
         "id": "HandleSlackResponse",
         "function": {
           "parameters": [{
-            "name": "responseUrl",
+            "name": "response_url",
             "type": "STRING"
           }],
           "js": "untitled_2.js"
