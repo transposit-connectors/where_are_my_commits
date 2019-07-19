@@ -1,15 +1,17 @@
 ({http_event}) => {
-  var qs = require('qs.js');
   
   api.log(http_event);
   
     
-  var parsedBody = qs.parse(http_event.body);
+  var parsedBody = http_event.parsed_body;
   var responseUrl = parsedBody.response_url;
   var email = parsedBody.text;
   var slackUser = parsedBody.user_name;
 
 
+  var foundUser = api.user({type: "slack", slackId: parsedBody.user_id, workspace_id: parsedBody.team_id});
+  api.log(foundUser);
+  return;
   var foundUserEmail = api.run("this.FindUser", {slackUsername: slackUser})[0];
   api.log("found user email");
   api.log(foundUserEmail);
@@ -18,7 +20,7 @@
       return {
     status_code: 200,
     headers: {"Content-Type": "application/json"},
-    body: {text: "Please set up this app! " + "https://where-are-my-commits-ns2jm.demo-transposit.com"}
+    body: {text: "Please set up this app! " + "https://where-are-my-commits-59556.staging-transposit.com/login"}
   };
   }
   
