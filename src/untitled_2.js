@@ -6,7 +6,7 @@
   if (!username) {
     var message = "Please provide your github username in the user settings!";
     var body = {text: message};
-    return api.run("slack.post_to_response_url", {response_url: params.response_url, body: body});
+    return api.run("slack_webhook.post_to_response_url", {response_url: params.response_url, post_body: body});
     
   }
   
@@ -27,5 +27,5 @@
   
   var body = {text: allMessages};
   
-  return api.run("slack.post_to_response_url", {response_url: params.response_url, body: body});
+  return api.run("slack_webhook.post_to_response_url", {response_url: params.response_url, post_body: body});
 }
