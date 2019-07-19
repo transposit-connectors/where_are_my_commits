@@ -227,7 +227,8 @@
       }, {
         "name": "github_username",
         "description": "Your github username for the Transposit org",
-        "type": "STRING"
+        "type": "STRING",
+        "hidden": true
       }],
       "userSettingsDisplay": "GENERATED"
     }
