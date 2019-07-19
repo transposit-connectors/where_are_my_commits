@@ -16,9 +16,6 @@
       }, {
         "name": "transposit/aws_ecs:v3.*.*",
         "alias": "aws_ecs_stage"
-      }, {
-        "name": "transposit/slack:v1.*.*",
-        "alias": "slack_internal"
       }],
       "operations": [{
         "id": "webhook",
