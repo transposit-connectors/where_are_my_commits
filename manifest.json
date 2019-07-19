@@ -18,9 +18,6 @@
         "alias": "aws_ecs_stage"
       }, {
         "name": "transposit/slack:v1.*.*",
-        "alias": "slack"
-      }, {
-        "name": "transposit/slack:v1.*.*",
         "alias": "slack_internal"
       }],
       "operations": [{
