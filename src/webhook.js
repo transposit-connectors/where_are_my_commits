@@ -9,10 +9,8 @@
   var slackUser = parsedBody.user_name;
 
 
-  var foundUser = api.user({type: "slack", userId: "foo", workspaceId: parsedBody.team_id});
-  api.log(foundUser);
-  return;
-  var foundUserEmail = api.run("this.FindUser", {slackUsername: slackUser})[0];
+  var foundUserEmail = api.user({type: "slack", userId: parsedBody.user_id, workspaceId: parsedBody.team_id}).email;
+
   api.log("found user email");
   api.log(foundUserEmail);
   
