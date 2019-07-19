@@ -10,7 +10,7 @@
   }
 
   if (!github) {
-    var message = "Please provide your github username in the user settings! https://where-are-my-commits-59556.staging-transposit.com/login";
+    var message = "Please authenticate with Github! https://where-are-my-commits-59556.staging-transposit.com/login";
     var body = {text: message};
     return api.run("slack_webhook.post_to_response_url", {response_url: params.response_url, post_body: body});
     
