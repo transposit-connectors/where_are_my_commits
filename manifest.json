@@ -125,11 +125,6 @@
           "tql": "SELECT * FROM github.list_commits\n  WHERE owner='transposit'\n  AND repo='transposit'\n  LIMIT 100\n  \n\n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
         }
       }, {
-        "id": "get_user",
-        "tql": {
-          "tql": "SELECT * FROM github.get_user_authenticated\n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
-        }
-      }, {
         "id": "GetRecentCommitMap",
         "function": {
           "js": "GetRecentCommitMap.js"
@@ -154,19 +149,9 @@
           "js": "get_user_settings_for_user.js"
         }
       }, {
-        "id": "get_users_identity",
-        "tql": {
-          "tql": "SELECT * FROM slack.get_users_identity\n\n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
-        }
-      }, {
         "id": "get_users_profile",
         "tql": {
           "tql": "SELECT * FROM slack.get_users_profile\n  WHERE include_labels=<boolean>\n  AND user='<string>'\n\n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
-        }
-      }, {
-        "id": "get_users_presence",
-        "tql": {
-          "tql": "SELECT * FROM slack.get_users_profile\n  -- WHERE user='<string>'\n\n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
         }
       }],
       "dataConnections": [{
