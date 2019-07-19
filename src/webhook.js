@@ -23,9 +23,9 @@
   }
   
   // api.log(sha);
-  api.runAsync("this.HandleSlackResponse", {responseUrl : responseUrl}, {asUser: foundUserEmail});
-  
-
+  setImmediate(() => {
+  	api.run("this.HandleSlackResponse", {responseUrl : responseUrl}, {asUser: foundUserEmail});  
+  });
   
   return {
     status_code: 200,
