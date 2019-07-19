@@ -188,6 +188,15 @@
       }, {
         "ref": "github.raw",
         "requireConsumerSignin": true,
+        "overrides": {
+          "swagger": {
+            "oauthConfig": {
+              "scope": "user repo"
+            },
+            "executionLimits": {
+            }
+          }
+        },
         "title": "Github"
       }, {
         "ref": "raw_github"
