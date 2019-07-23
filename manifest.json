@@ -157,6 +157,11 @@
         "tql": {
           "tql": "SELECT * FROM aws_cloudwatch_event.list_rules\n  WHERE $body=(SELECT {\n    'NamePrefix' : 'deploy-enabled',\n    -- 'NextToken' : '<string>',\n    -- 'Limit' : <integer>\n  })\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
         }
+      }, {
+        "id": "describe_services",
+        "tql": {
+          "tql": "SELECT * FROM aws_ecs_stage.describe_services\n  WHERE $body=(SELECT {\n    'cluster' : 'stage-cluster',\n    'services' : [ 'web' ]\n  })\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
+        }
       }],
       "dataConnections": [{
         "ref": "aws_basic",

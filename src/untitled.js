@@ -6,7 +6,7 @@
   var envs = ["stage", "staging", "prod"];
   envs.forEach((env) => {
     var operationName = `aws_ecs_${env}.describe_services`;
-    var parameters = {services: ["web"], cluster: `${env}-cluster`};
+    var parameters = {$body: {services: ["web"], cluster: `${env}-cluster`}};
     deployOperations.push({operation: operationName, parameters: parameters});
   });
   
