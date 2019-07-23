@@ -23,7 +23,7 @@
         "name": "transposit/slack_webhook:v1.*.*",
         "alias": "slack_webhook"
       }, {
-        "name": "transposit/aws_cloudwatch_event:v2.*.*",
+        "name": "transposit/aws_cloudwatch_event:v3.*.*",
         "alias": "aws_cloudwatch_event"
       }],
       "operations": [{
