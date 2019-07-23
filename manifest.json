@@ -14,7 +14,7 @@
         "name": "transposit/aws_ecs:v5.*.*",
         "alias": "aws_ecs_prod"
       }, {
-        "name": "transposit/aws_ecs:v3.*.*",
+        "name": "transposit/aws_ecs:v5.*.*",
         "alias": "aws_ecs_stage"
       }, {
         "name": "transposit/slack:v3.*.*",
