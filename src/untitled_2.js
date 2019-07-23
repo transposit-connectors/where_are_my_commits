@@ -29,7 +29,7 @@
   
     // For some commits the author is null (and we only have their email)
     // I am choosing to not handle that case right now.
-    if (commit.author && commit.author.login == username) {
+    if (commit.author && commit.author.login == github) {
       numCommits += 1;
       api.log(commit);
       var newMessage = api.run("this.MakeSlackMessage", {sha: sha, commitMap: commitMap})[0];
