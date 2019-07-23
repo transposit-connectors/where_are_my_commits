@@ -25,6 +25,9 @@
       }, {
         "name": "transposit/aws_cloudwatch_event:v3.*.*",
         "alias": "aws_cloudwatch_event"
+      }, {
+        "name": "transposit/aws_cloudwatch_event:v2.*.*",
+        "alias": "aws_cloudwatch_event_old"
       }],
       "operations": [{
         "id": "webhook",
