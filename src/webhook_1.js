@@ -9,6 +9,8 @@
   var prodDeployEnabled = api.run("this.prodDeployEnabled")[0];
   var deployedCommits = api.run("this.GetDeployedCommits");
   
+  var fun = user_setting.get("fun_messages");
+  
   
   var commit = api.run("this.FindCommit", {
     demoCommit: deployedCommits[0],
@@ -30,7 +32,7 @@
     } else if (commit.env === "DEV") {
       return "Is this commit a development commit? Please use a commit that was merged into master.";
     } else if (commit.env === "PROD") {
-      return `${commit.message} is on prod!`;
+      return `${commit.message} is on Prod!` + (fun ? ":iggy-party:" : "");
     }
 
     var stageNumber = stageToNumberMap[commit.env];
@@ -50,7 +52,15 @@
     if (stageNumber < 1) { // master
       message += `${commit.message} just got merged into master.\nIt will be on Demo soon\n`;
     } else {
-      message += `${commit.message} is on ${commit.env}.\n`;
+      var emoji = "";
+      if (fun) {
+      	if (commit.env =="DEMO") {
+          emoji = ":iggy-cactus:";
+        } else {
+          emoji = ":iggy-run:"
+        }
+      }
+      message += `${commit.message} is on ${commit.env.charAt(0).toUpperCase() + commit.env.substr(1).toLowerCase()}${emoji}.\n`;
     }
 
     if (stageNumber < 2) { // on demo
@@ -59,7 +69,8 @@
     }
 
     if (!prodDeployEnabled) {
-      message += `Prod deploy is *disabled*, so it's unclear when it will make it to prod.`;
+      var emoji = fun ? ":iggy-ghastly:" : "";
+      message += `Prod deploy is *disabled* ${emoji}, so it's unclear when it will make it to prod.`;
     } else {
       message += "It will be on *Prod* ";
       var dayOfWeek = now.clone().format("dddd");
@@ -73,7 +84,6 @@
         var toProd = now.clone().startOf('day').add(deployHour, 'hours').add(daysToAdd, 'days').calendar();
         message += toProd;
       }
-      message += " (prod deployment is enabled)\n";
     }
 
     if (containsDynamicConfig) {
