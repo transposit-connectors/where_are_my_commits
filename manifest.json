@@ -212,6 +212,15 @@
             }
           }
         }
+      }, {
+        "ref": "aws_ecs_staging",
+        "overrides": {
+          "aws": {
+            "region": "us-west-2",
+            "executionLimits": {
+            }
+          }
+        }
       }],
       "javascriptAPIVersion": "3",
       "source": "src",
