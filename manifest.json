@@ -115,11 +115,6 @@
           "js": "stageNumberMap.js"
         }
       }, {
-        "id": "get_git_tree",
-        "tql": {
-          "tql": "SELECT * FROM github.get_git_tree\n  WHERE owner='transposit'\n  AND shaCode='2f89bec90c6bb5891c82ad645edecc532cd874d7'\n  AND repo='transposit'\n  \n\n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
-        }
-      }, {
         "id": "HandleSlackResponse",
         "function": {
           "parameters": [{
@@ -137,30 +132,6 @@
         "id": "GetRecentCommitMap",
         "function": {
           "js": "GetRecentCommitMap.js"
-        }
-      }, {
-        "id": "zGetCommitMap",
-        "function": {
-          "js": "GetCommitMap.js"
-        }
-      }, {
-        "id": "FindUser",
-        "function": {
-          "parameters": [{
-            "name": "slackUsername",
-            "type": "STRING"
-          }],
-          "js": "FindUser.js"
-        }
-      }, {
-        "id": "list_rules",
-        "tql": {
-          "tql": "SELECT * FROM aws_cloudwatch_event.list_rules\n  WHERE $body=(SELECT {\n    'NamePrefix' : 'deploy-enabled',\n    -- 'NextToken' : '<string>',\n    -- 'Limit' : <integer>\n  })\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
-        }
-      }, {
-        "id": "describe_services",
-        "tql": {
-          "tql": "SELECT * FROM aws_ecs_stage.describe_services\n  WHERE $body=(SELECT {\n    'cluster' : 'stage-cluster',\n    'services' : [ 'web' ]\n  })\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
         }
       }],
       "dataConnections": [{
