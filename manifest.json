@@ -8,7 +8,7 @@
         "name": "transposit/github:v3.*.*",
         "alias": "github"
       }, {
-        "name": "transposit/aws_ecs:v3.*.*",
+        "name": "transposit/aws_ecs:v4.*.*",
         "alias": "aws_ecs_staging"
       }, {
         "name": "transposit/aws_ecs:v3.*.*",
