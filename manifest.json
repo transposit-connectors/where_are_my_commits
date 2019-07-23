@@ -124,11 +124,6 @@
           "js": "untitled_2.js"
         }
       }, {
-        "id": "list_commits",
-        "tql": {
-          "tql": "SELECT * FROM github.list_commits\n  WHERE owner='transposit'\n  AND repo='transposit'\n  LIMIT 100\n  \n\n/*\n * For sample code and reference material, visit\n * https://docs.transposit.com/get-started/sql-quickstart\n */"
-        }
-      }, {
         "id": "GetRecentCommitMap",
         "function": {
           "js": "GetRecentCommitMap.js"
