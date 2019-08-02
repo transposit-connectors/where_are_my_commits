@@ -1,5 +1,5 @@
 (params) => {
-  var rule = api.run("aws_cloudwatch_event.list_rules", {$body: {NamePrefix: "deploy-daily"}})[0].Rules[0];
+  var rule = api.run("aws_cloudwatch_events.list_rules", {$body: {NamePrefix: "deploy-daily"}})[0].Rules[0];
   return rule.State === "ENABLED";
 }
 
