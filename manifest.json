@@ -125,6 +125,11 @@
         "function": {
           "js": "GetRecentCommitMap.js"
         }
+      }, {
+        "id": "untitled_3",
+        "function": {
+          "js": "untitled_3.js"
+        }
       }],
       "dataConnections": [{
         "ref": "aws_basic",

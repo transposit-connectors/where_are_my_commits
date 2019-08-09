@@ -7,17 +7,26 @@
   var response_url = parsedBody.response_url;
   var email = parsedBody.text;
   var slackUser = parsedBody.user_name;
+  var runningAsSomeoneElse = false;
+  
+  var userId = parsedBody.user_id;
+  if (parsedBody.text && parsedBody.text.startsWith("<@")) {
+    runningAsSomeoneElse = true;
+    userId = parsedBody.text.split("|")[0].substring(2);
+  }
 
 
-  var foundUser = api.user({type: "slack", userId: parsedBody.user_id, workspaceId: parsedBody.team_id});
+  var foundUser = api.user({type: "slack", userId: userId, workspaceId: parsedBody.team_id});
 
   api.log(foundUser);
   
   if (!foundUser) {
+    var text = runningAsSomeoneElse ? `Sorry, <@${userId} hasn't set up this app. You can ping them to add their crednetials here: ${env.getBuiltin().appUrl}`
+    : "Please set up this app! " + env.getBuiltin().appUrl;
       return {
     status_code: 200,
     headers: {"Content-Type": "application/json"},
-    body: {text: "Please set up this app! " + "https://where-are-my-commits-59556.staging-transposit.com/login"}
+    body: {text: text}
   };
   }
   
