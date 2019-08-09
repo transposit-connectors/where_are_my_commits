@@ -21,7 +21,7 @@
   api.log(foundUser);
   
   if (!foundUser) {
-    var text = runningAsSomeoneElse ? `Sorry, <@${userId} hasn't set up this app. You can ping them to add their crednetials here: ${env.getBuiltin().appUrl}`
+    var text = runningAsSomeoneElse ? `Sorry, <@${userId}> hasn't set up this app. You can ping them to add their crednetials here: ${env.getBuiltin().appUrl}`
     : "Please set up this app! " + env.getBuiltin().appUrl;
       return {
     status_code: 200,
