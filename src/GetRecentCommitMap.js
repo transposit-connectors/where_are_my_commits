@@ -1,7 +1,7 @@
 (params) => {
   var moment = require('moment-timezone-with-data.js');
   var now = moment();
-  var fiveDaysAgo = now.subtract(5, "days");
+  var fiveDaysAgo = now.subtract(10, "days");
   api.log(fiveDaysAgo);
   
   var commits = api.run("github.list_commits", {owner: "transposit", repo: "transposit", since: fiveDaysAgo});
