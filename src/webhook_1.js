@@ -70,7 +70,7 @@
 
     if (!prodDeployEnabled) {
       var emoji = fun ? ":iggy-ghastly:" : "";
-      message += `Prod deploy is *disabled* ${emoji}, so it's unclear when it will make it to prod.`;
+      message += `Prod deploy is *disabled* ${emoji}, so it's unclear when this will be on prod.`;
     } else {
       message += "It will be on *Prod* ";
       var dayOfWeek = now.clone().format("dddd");
