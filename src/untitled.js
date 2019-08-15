@@ -20,6 +20,7 @@
     var sha = taskDef.substring(taskDef.indexOf(searchString) + searchString.length, taskDef.length -2);
     shas.push(sha);
   });
+  
   return shas;
 }
 
