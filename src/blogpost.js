@@ -1,5 +1,7 @@
 (params) => {
-  return env.getBuiltin().appUrl[0]
+  var body = params.untitled1;
+  body.channel = "CK4K2AK4N";
+  api.run("slack.post_chat_message", {$body: body})
   return {
     mission: "complete"
   };

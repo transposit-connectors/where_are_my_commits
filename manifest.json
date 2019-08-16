@@ -126,9 +126,13 @@
           "js": "GetRecentCommitMap.js"
         }
       }, {
-        "id": "untitled_3",
+        "id": "blogpost",
         "function": {
-          "js": "untitled_3.js"
+          "parameters": [{
+            "name": "untitled1",
+            "type": "OBJECT"
+          }],
+          "js": "blogpost.js"
         }
       }],
       "dataConnections": [{
