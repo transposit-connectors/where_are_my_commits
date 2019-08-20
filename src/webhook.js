@@ -23,11 +23,9 @@
     if (!foundUser) {
       var text = runningAsSomeoneElse ? `Sorry, <@${userId}> hasn't set up this app. You can ping them to add their crednetials here: ${env.getBuiltin().appUrl}`
       : "Please set up this app! " + env.getBuiltin().appUrl;
-        return {
-      status_code: 200,
-      headers: {"Content-Type": "application/json"},
-      body: {text: text}
-    };
+      
+      
+      api.run("slack_webhook.post_to_response_url", {response_url: response_url, post_body: {text: text}});
     }
   	api.run("this.HandleSlackResponse", {response_url : response_url}, {asUser: foundUser.id});  
   });
