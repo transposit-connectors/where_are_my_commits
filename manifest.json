@@ -247,6 +247,7 @@
         "hidden": true
       }],
       "userSettingsDisplay": "GENERATED"
-    }
+    },
+    "displayName": "Find My Commits"
   }
 }
