@@ -1,6 +1,6 @@
 ({http_event}) => {
   
-  api.log(http_event);
+  // api.log(http_event);
   
   setImmediate(() => {
     var parsedBody = http_event.parsed_body;
