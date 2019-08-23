@@ -33,7 +33,7 @@
   return {
     status_code: 200,
     headers: {"Content-Type": "application/json"},
-    body: {text: "Getting deployment info for <@foeb1V7L>. One moment please..."}
+    body: {text: "Getting deployment info for you. One moment please..."}
   };
 
 }
