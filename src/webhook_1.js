@@ -88,7 +88,7 @@
 
     if (containsDynamicConfig) {
       var ending2 = stageNumber < 1 ? "will be deployed shortly" : "have already been deployed";
-      message += `The dynamic configuration changes in this commit ${ending2}`
+      message += `\nThe dynamic configuration changes in this commit ${ending2}`
     }
 
     api.log(message);
