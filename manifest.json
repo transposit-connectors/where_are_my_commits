@@ -257,6 +257,7 @@
       }],
       "userSettingsDisplay": "GENERATED"
     },
-    "displayName": "Find My Commits"
+    "description": "Correlates GitHub commits with AWS deploys to tell users where their commits are.",
+    "displayName": "Find My Commits Skeleton"
   }
 }
