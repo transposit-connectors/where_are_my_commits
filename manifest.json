@@ -95,9 +95,6 @@
           }],
           "js": "webhook_1.js",
           "lang": "js"
-        },
-        "access": {
-          "requireUser": true
         }
       }, {
         "id": "stageNumberMap",
