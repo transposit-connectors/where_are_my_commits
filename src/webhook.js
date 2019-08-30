@@ -1,7 +1,4 @@
 ({http_event}) => {
-  
-  // api.log(http_event);
-  
   setImmediate(() => {
     var parsedBody = http_event.parsed_body;
     var response_url = parsedBody.response_url;
@@ -15,15 +12,11 @@
       userId = parsedBody.text.split("|")[0].substring(2);
     }
 
-
     var foundUser = api.user({type: "slack", userId: userId, workspaceId: parsedBody.team_id});
-
-    api.log(foundUser);
 
     if (!foundUser) {
       var text = runningAsSomeoneElse ? `Sorry, <@${userId}> hasn't set up this app. You can ping them to add their credentials here: ${env.getBuiltin().appUrl}`
       : "Please set up this app! " + env.getBuiltin().appUrl;
-      
       
       api.run("slack_webhook.post_to_response_url", {response_url: response_url, post_body: {text: text}});
     }

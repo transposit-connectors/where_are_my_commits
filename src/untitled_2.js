@@ -27,8 +27,6 @@
   Object.keys(commitMap).forEach(sha => {
     var commit = commitMap[sha];
   
-    // For some commits the author is null (and we only have their email)
-    // I am choosing to not handle that case right now.
     if (commit.author && commit.author.login == github) {
       numCommits += 1;
       api.log(commit);
@@ -37,16 +35,6 @@
       allMessages += lineBreak;
     }
   });
-  
-  if (numCommits == 0) {
-    var commits = api.run("github.list_commits", {owner: "transposit", repo: "transposit", author: username}, {limit: 5});
-    var emoji = fun ? ":iggy-party:" : ""
-	allMessages += "Your last 5 commits are:" + lineBreak;
-    commits.forEach(commit => {
-      allMessages += `${commit.commit.message}${lineBreak}`;
-    });
-    allMessages += `And they're all on Prod!${emoji}`
-  }
   
   var prodDeployEnabled = api.run("this.prodDeployEnabled")[0];
   if (prodDeployEnabled) {

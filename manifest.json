@@ -66,27 +66,15 @@
         "function": {
           "parameters": [{
             "name": "demoCommit",
-            "default": {
-              "text": "1662de3735e5963c4bba63f1cba940f686e50c54"
-            },
             "type": "STRING"
           }, {
             "name": "stagingCommit",
-            "default": {
-              "text": "b0097afb560495fc15533a24ff98bce716300529"
-            },
             "type": "STRING"
           }, {
             "name": "prodCommit",
-            "default": {
-              "text": "ed8667cd4ce1f0d7991730be226ef1d17153e3a2"
-            },
             "type": "STRING"
           }, {
             "name": "sha",
-            "default": {
-              "text": "99933565881de573346eb83fe8b0fe8e3a911a53"
-            },
             "type": "STRING"
           }, {
             "name": "commitMap",
@@ -131,16 +119,6 @@
         "id": "GetRecentCommitMap",
         "function": {
           "js": "GetRecentCommitMap.js",
-          "lang": "js"
-        }
-      }, {
-        "id": "blogpost",
-        "function": {
-          "parameters": [{
-            "name": "untitled1",
-            "type": "OBJECT"
-          }],
-          "js": "blogpost.js",
           "lang": "js"
         }
       }],
